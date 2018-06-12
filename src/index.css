@@ -28,23 +28,28 @@ html {
 }
 
 body {
-	background-color: #f8f8f8;
+	background-color: white;
 	font-family: 'Josefin Sans', sans-serif;
 
 }
 
 /*placeholders to left*/
-::-webkit-input-placeholder { /* WebKit browsers */
+
+::placeholder { /* WebKit browsers */
 	text-align: left;
+  color: white;
 }
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
 	text-align: left;
+  color: white;
 }
 ::-moz-placeholder { /* Mozilla Firefox 19+ */
 	text-align: left;
+  color: white;
 }
 :-ms-input-placeholder { /* Internet Explorer 10+ */
 	text-align: left;
+  color: white;
 }
 
 /*remove chrome yello autofill*/

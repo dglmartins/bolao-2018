@@ -1,0 +1,20 @@
+/*containers for white background login fields*/
+.login-fields-container {
+	position: relative;
+	width: 100%;
+	height: 8em;
+	padding: 0.5em;
+	margin-bottom: 1em;
+	/* background-color: #fff; */
+	border-radius: 5px;
+	box-shadow: 0 4px 2px -2px #c0c0c0;
+}
+
+
+.bolao-copa-input:focus {
+	/* border-bottom: 2px solid #dedede; */
+	margin-bottom: 2em;
+	text-align: left;
+	font-size: 1.2em;
+
+}

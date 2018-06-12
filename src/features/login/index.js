@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 // import { connect } from 'react-redux';
-// import { Route, withRouter } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import './login.css';
-// import SignIn from './signIn';
+import SignIn from './signIn';
 // import ResetPass from './resetPass';
 import MainHeader from '../sharedComponents/mainHeader';
 // import { firebaseAuth } from '../services/utils/api';
 // import { spinnerOnOff } from '../spinner/services/spinnerActions';
 // import { signInThunk, resetPassThunk } from './services/logInThunkActions';
+import ball from '../assets/ball.png';
 
 const initialState = {
   signInInput: '',
@@ -38,17 +39,17 @@ class Login extends Component {
   //   this.props.history.push('/login');
   // }
   //
-  // updatePlaceholder = (e) => {
-  //   const inputName = e.target.getAttribute('name');
-  //   const statePropertyName = inputName.concat("Placeholder");
-  //   (e.type === 'focus') ? this.setState({ [statePropertyName]: ''}) : this.setState({ [statePropertyName]: initialState[statePropertyName]});
-  // }
+  updatePlaceholder = (e) => {
+    const inputName = e.target.getAttribute('name');
+    const statePropertyName = inputName.concat("Placeholder");
+    (e.type === 'focus') ? this.setState({ [statePropertyName]: ''}) : this.setState({ [statePropertyName]: initialState[statePropertyName]});
+  }
   //
-  // updateInput = (e) => {
-  //   const inputName = e.target.getAttribute('name');
-  //   const inputValue = e.target.value;
-  //   this.setState({ [inputName]: inputValue });
-  // }
+  updateInput = (e) => {
+    const inputName = e.target.getAttribute('name');
+    const inputValue = e.target.value;
+    this.setState({ [inputName]: inputValue });
+  }
   //
   // resetInputs = () => {
   //   this.setState(initialState);
@@ -74,36 +75,46 @@ class Login extends Component {
     return (
       <section>
         <MainHeader>
-        	<div className="header-page-title"><h5>Bolao da Copa Login</h5></div>
+          <h5>Bolao da Copa Login</h5>
+          <img src={ball}></img>
         </MainHeader>
 
-        {/* <section className="logo-container"> */}
-        {/* </section> */}
+        <section className="logo-container">
+        </section>
 
-        {/* <section className="login-form-container">
+        <section className="login-form-container">
           <Route exact path='/login/' render={() => (
               <SignIn
-                signIn={this.signIn}
                 signInInput={this.state.signInInput}
                 passwordInput={this.state.passwordInput}
                 updateInput={this.updateInput}
                 updatePlaceholder={this.updatePlaceholder}
                 signInInputPlaceholder={this.state.signInInputPlaceholder}
                 passwordInputPlaceholder={this.state.passwordInputPlaceholder}
-                navigateToResetPassword={this.navigateToResetPassword}
+
+
               />
+              //   signIn={this.signIn}
+              //   signInInput={this.state.signInInput}
+              //   passwordInput={this.state.passwordInput}
+              //   updateInput={this.updateInput}
+              //   updatePlaceholder={this.updatePlaceholder}
+              //   signInInputPlaceholder={this.state.signInInputPlaceholder}
+              //   passwordInputPlaceholder={this.state.passwordInputPlaceholder}
+              //   navigateToResetPassword={this.navigateToResetPassword}
+              // />
           )}/>
-          <Route exact path='/login/resetPassword' render={() => (
-              <ResetPass
-                resetPass={this.resetPass}
-                updateInput={this.updateInput}
-                passResetInput={this.state.passResetInput}
-                updatePlaceholder={this.updatePlaceholder}
-                passResetInputPlaceholder={this.state.passResetInputPlaceholder}
-                navigateToLogIn={this.navigateToLogIn}
-              />
-          )}/>
-        </section> */}
+          {/* <Route exact path='/login/resetPassword' render={() => ( */}
+              {/* // <ResetPass
+              //   resetPass={this.resetPass}
+              //   updateInput={this.updateInput}
+              //   passResetInput={this.state.passResetInput}
+              //   updatePlaceholder={this.updatePlaceholder}
+              //   passResetInputPlaceholder={this.state.passResetInputPlaceholder}
+              //   navigateToLogIn={this.navigateToLogIn}
+              // /> */}
+          {/* )}/> */}
+        </section>
       </section>
     );
   }
