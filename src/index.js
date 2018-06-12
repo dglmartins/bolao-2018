@@ -8,9 +8,7 @@ import { Provider } from 'react-redux';
 import './index.css';
 import App from './features/App';
 import registerServiceWorker from './registerServiceWorker';
-
-// ReactDOM.render(<App />, document.getElementById('root'));
-// registerServiceWorker();
+import * as api from './features/services/utils/api';
 
 
 //composeEnhancers to add Redux devTools
@@ -19,7 +17,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 const store = createStore(
   reducer,
   composeEnhancers(
-    applyMiddleware(thunk.withExtraArgument())
+    applyMiddleware(thunk.withExtraArgument(api))
   )
 );
 
