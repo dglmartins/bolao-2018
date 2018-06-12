@@ -1,0 +1,10 @@
+.recovery-fields-container {
+	position: relative;
+	height: 3.5em;
+	overflow: auto;
+	background-color: #fff;
+	border-radius: 5px;
+	box-shadow: 0 4px 2px -2px #c0c0c0;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+}

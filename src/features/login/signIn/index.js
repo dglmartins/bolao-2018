@@ -1,8 +1,8 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import './signIn.css';
-// import ViewNavLink from '../../sharedComponents/viewNavLink';
-// import BpLargePinkButton from '../../sharedComponents/bpLargePinkButton';
+import ViewNavLink from '../../sharedComponents/viewNavLink';
+import LargeButton from '../../sharedComponents/LargeButton';
 
 const SignIn = (props) => (
   <form name="signin" onSubmit={props.signIn}>
@@ -28,8 +28,8 @@ const SignIn = (props) => (
         onChange={props.updateInput}
       />
     </div>
-    {/* <ViewNavLink navTitle="Forgot Password?" handleClick={props.navigateToResetPassword}/> */}
-    {/* <BpLargePinkButton buttonText="Sign In"/> */}
+    <ViewNavLink navTitle="Forgot Password?" handleClick={props.navigateToResetPassword}/>
+    <LargeButton buttonText="Sign In"/>
   </form>
 );
 

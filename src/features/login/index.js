@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Route, withRouter } from 'react-router-dom';
 import './login.css';
 import SignIn from './signIn';
-// import ResetPass from './resetPass';
+import ResetPass from './resetPass';
 import MainHeader from '../sharedComponents/mainHeader';
 // import { firebaseAuth } from '../services/utils/api';
 // import { spinnerOnOff } from '../spinner/services/spinnerActions';
@@ -23,22 +23,22 @@ class Login extends Component {
 
   state = initialState;
 
-  // componentWillMount() {
-  //   this.props.history.push('/login');
-  //   this.props.spinnerOnOff(true);
-  //   firebaseAuth.onAuthStateChanged((user) => {
-  //     (user) ? this.props.history.push('/home') : this.props.spinnerOnOff(false);
-  //   });
-  // }
+  componentWillMount() {
+    this.props.history.push('/login');
+    // this.props.spinnerOnOff(true);
+    // firebaseAuth.onAuthStateChanged((user) => {
+    //   (user) ? this.props.history.push('/home') : this.props.spinnerOnOff(false);
+    // });
+  }
 
-  // navigateToResetPassword = () => {
-  //   this.props.history.push('/login/resetPassword');
-  // }
-  //
-  // navigateToLogIn = () => {
-  //   this.props.history.push('/login');
-  // }
-  //
+  navigateToResetPassword = () => {
+    this.props.history.push('/login/resetPassword');
+  }
+
+  navigateToLogIn = () => {
+    this.props.history.push('/login');
+  }
+  
   updatePlaceholder = (e) => {
     const inputName = e.target.getAttribute('name');
     const statePropertyName = inputName.concat("Placeholder");
@@ -50,16 +50,16 @@ class Login extends Component {
     const inputValue = e.target.value;
     this.setState({ [inputName]: inputValue });
   }
-  //
-  // resetInputs = () => {
-  //   this.setState(initialState);
-  // };
+
+  resetInputs = () => {
+    this.setState(initialState);
+  };
   //
   // signIn = (e) => {
   //   e.preventDefault();
   //   this.props.signInThunk({email: this.state.signInInput, password: this.state.passwordInput}).then(() => this.resetInputs());
   // }
-  //
+
   // resetPass = (e) => {
   //   e.preventDefault();
   //   this.props.resetPassThunk(this.state.passResetInput)
@@ -91,29 +91,22 @@ class Login extends Component {
                 updatePlaceholder={this.updatePlaceholder}
                 signInInputPlaceholder={this.state.signInInputPlaceholder}
                 passwordInputPlaceholder={this.state.passwordInputPlaceholder}
-
-
+                navigateToResetPassword={this.navigateToResetPassword}
+                //   signIn={this.signIn}
               />
-              //   signIn={this.signIn}
-              //   signInInput={this.state.signInInput}
-              //   passwordInput={this.state.passwordInput}
-              //   updateInput={this.updateInput}
-              //   updatePlaceholder={this.updatePlaceholder}
-              //   signInInputPlaceholder={this.state.signInInputPlaceholder}
-              //   passwordInputPlaceholder={this.state.passwordInputPlaceholder}
-              //   navigateToResetPassword={this.navigateToResetPassword}
-              // />
+
+
           )}/>
-          {/* <Route exact path='/login/resetPassword' render={() => ( */}
-              {/* // <ResetPass
-              //   resetPass={this.resetPass}
-              //   updateInput={this.updateInput}
-              //   passResetInput={this.state.passResetInput}
-              //   updatePlaceholder={this.updatePlaceholder}
-              //   passResetInputPlaceholder={this.state.passResetInputPlaceholder}
-              //   navigateToLogIn={this.navigateToLogIn}
-              // /> */}
-          {/* )}/> */}
+          <Route exact path='/login/resetPassword' render={() => (
+              <ResetPass
+                // resetPass={this.resetPass}
+                updateInput={this.updateInput}
+                passResetInput={this.state.passResetInput}
+                updatePlaceholder={this.updatePlaceholder}
+                passResetInputPlaceholder={this.state.passResetInputPlaceholder}
+                navigateToLogIn={this.navigateToLogIn}
+              />
+          )}/>
         </section>
       </section>
     );

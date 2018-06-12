@@ -1,0 +1,16 @@
+/*login button*/
+.large-button {
+	width: 98%;
+	height: 2.5em;
+	margin-left: 1%;
+	color: white;
+	border-style: hidden;
+	cursor: pointer;
+	/* background-color: #ea7a87; */
+	box-shadow: 0 4px 2px -2px #c0c0c0;
+	font-size: 1.2em;
+}
+
+.large-button:hover {
+	color: #c0c0c0;
+}

@@ -1,0 +1,12 @@
+.view-nav-link {
+	text-align: center;
+	margin-top: 1.5em;
+	margin-bottom: 1.5em;
+	font-size: 1.3em;
+	color: black;
+}
+
+.view-nav-link:hover {
+	cursor: pointer;
+	color: #c0c0c0;
+}
