@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 import { Route, withRouter } from 'react-router-dom';
 import './login.css';
 import SignIn from './signIn';
 import ResetPass from './resetPass';
 import MainHeader from '../sharedComponents/mainHeader';
-// import { firebaseAuth } from '../services/utils/api';
+import { firebaseAuth } from '../services/utils/api';
 // import { spinnerOnOff } from '../spinner/services/spinnerActions';
-// import { signInThunk, resetPassThunk } from './services/logInThunkActions';
+import { signInThunk, resetPassThunk } from './services/logInThunk';
 import ball from '../assets/ball.png';
 
 const initialState = {
@@ -26,9 +26,9 @@ class Login extends Component {
   componentWillMount() {
     this.props.history.push('/login');
     // this.props.spinnerOnOff(true);
-    // firebaseAuth.onAuthStateChanged((user) => {
-    //   (user) ? this.props.history.push('/home') : this.props.spinnerOnOff(false);
-    // });
+    firebaseAuth.onAuthStateChanged((user) => {
+      (user) ? this.props.history.push('/home') : "";
+    });
   }
 
   navigateToResetPassword = () => {
@@ -54,22 +54,22 @@ class Login extends Component {
   resetInputs = () => {
     this.setState(initialState);
   };
-  //
-  // signIn = (e) => {
-  //   e.preventDefault();
-  //   this.props.signInThunk({email: this.state.signInInput, password: this.state.passwordInput}).then(() => this.resetInputs());
-  // }
 
-  // resetPass = (e) => {
-  //   e.preventDefault();
-  //   this.props.resetPassThunk(this.state.passResetInput)
-  //     .then((results) => {
-  //       if (results === 'success') {
-  //         this.props.history.push('/login');
-  //       }
-  //       this.resetInputs()
-  //     });
-  // }
+  signIn = (e) => {
+    e.preventDefault();
+    this.props.signInThunk({email: this.state.signInInput, password: this.state.passwordInput}).then(() => this.resetInputs());
+  }
+
+  resetPass = (e) => {
+    e.preventDefault();
+    this.props.resetPassThunk(this.state.passResetInput)
+      .then((results) => {
+        if (results === 'success') {
+          this.props.history.push('/login');
+        }
+        this.resetInputs()
+      });
+  }
 
   render() {
     return (
@@ -92,7 +92,7 @@ class Login extends Component {
                 signInInputPlaceholder={this.state.signInInputPlaceholder}
                 passwordInputPlaceholder={this.state.passwordInputPlaceholder}
                 navigateToResetPassword={this.navigateToResetPassword}
-                //   signIn={this.signIn}
+                signIn={this.signIn}
               />
 
 
@@ -119,14 +119,13 @@ class Login extends Component {
 //     };
 // }
 //
-// function mapDispatchToProps (dispatch) {
-//   return {
-//     spinnerOnOff: (data) => dispatch(spinnerOnOff(data)),
-//     signInThunk: (data) => dispatch(signInThunk(data)),
-//     resetPassThunk: (data) => dispatch(resetPassThunk(data))
-//   };
-// }
 
-export default Login;
+function mapDispatchToProps (dispatch) {
+  return {
+    signInThunk: (data) => dispatch(signInThunk(data)),
+    resetPassThunk: (data) => dispatch(resetPassThunk(data))
+  }
+}
 
-// export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login));
+
+export default withRouter(connect(null, mapDispatchToProps)(Login));
