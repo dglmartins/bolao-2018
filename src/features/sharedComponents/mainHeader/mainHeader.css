@@ -1,0 +1,11 @@
+.header-container{
+  height: 10em;
+}
+
+.brand-logo {
+  margin-left: 0.5em;
+}
+
+.brand-logo:hover {
+  cursor: pointer;
+}
