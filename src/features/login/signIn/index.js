@@ -1,5 +1,4 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
 import './signIn.css';
 import ViewNavLink from '../../sharedComponents/viewNavLink';
 import LargeButton from '../../sharedComponents/LargeButton';
@@ -40,4 +39,4 @@ const SignIn = (props) => (
 );
 
 //todo optimize re renders
-export default withRouter(SignIn);
+export default SignIn;

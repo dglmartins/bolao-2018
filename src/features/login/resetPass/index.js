@@ -1,5 +1,4 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
 import './resetPass.css';
 import ViewNavLink from '../../sharedComponents/viewNavLink';
 import LargeButton from '../../sharedComponents/LargeButton';
@@ -23,6 +22,6 @@ const ResetPass = (props) => (
   </form>
 );
 
-export default withRouter(ResetPass);
+export default ResetPass;
 
 //todo optimize rerenders

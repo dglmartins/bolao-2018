@@ -1,8 +1,9 @@
 export const LOG_IN_OUT = 'LOG_IN_OUT';
 
-export function logInOut(user) {
+export function logInOut({uid, email}) {
   return {
     type: LOG_IN_OUT,
-    user
+    uid,
+    email
   }
 }

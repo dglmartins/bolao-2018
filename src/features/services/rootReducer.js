@@ -1,4 +1,4 @@
-// import { header } from '../home/homeHeader/services/headerReducer';
+import { user } from '../login/services/userReducer';
 
 import  { combineReducers } from 'redux';
 
@@ -6,7 +6,7 @@ export default combineReducers({
   // header,
   // subHeader,
   // sideMenu,
-  // user,
+  user,
   // spinner,
   // filterIndexBy,
   // products,

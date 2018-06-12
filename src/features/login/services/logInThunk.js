@@ -1,4 +1,6 @@
 // import { spinnerOnOff } from '../../spinner/services/spinnerActions';
+import { logInOut } from './userActions';
+
 
 export function signInThunk ({email, password}) {
   return function(dispatch, getState, api) {

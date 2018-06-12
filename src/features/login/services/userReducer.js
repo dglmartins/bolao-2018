@@ -1,11 +1,12 @@
-import LOG_IN_OUT from './userActions';
+import { LOG_IN_OUT } from './userActions';
 
-export function user (state = {currentUser: null}, action) {
+export function user (state = null, action) {
   switch (action.type) {
     case LOG_IN_OUT:
       return {
         ...state,
-        currentUser: action.user
+        uid: action.uid,
+        email: action.email
       };
     default:
       return state

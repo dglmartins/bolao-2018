@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Route, withRouter } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import './login.css';
 import SignIn from './signIn';
 import ResetPass from './resetPass';
@@ -99,7 +99,7 @@ class Login extends Component {
           )}/>
           <Route exact path='/login/resetPassword' render={() => (
               <ResetPass
-                // resetPass={this.resetPass}
+                resetPass={this.resetPass}
                 updateInput={this.updateInput}
                 passResetInput={this.state.passResetInput}
                 updatePlaceholder={this.updatePlaceholder}
@@ -128,4 +128,4 @@ function mapDispatchToProps (dispatch) {
 }
 
 
-export default withRouter(connect(null, mapDispatchToProps)(Login));
+export default connect(null, mapDispatchToProps)(Login);
