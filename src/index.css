@@ -1,5 +1,60 @@
+/************************************************
+*
+* My colors:
+*
+*************************************************/
+
+/*border box sizing for all*/
+*, *::before, *::after {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/*reset margins, paddings and border so we know what we are doing*/
+html, body, main, h1, h2,
+ h3, p, ol, ul, li, a {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	box-sizing: border-box;
+
+}
+
+html {
+	height: 100%;
+	font-size: 100%;
+
+}
+
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+	background-color: #f8f8f8;
+	font-family: 'Josefin Sans', sans-serif;
+
+}
+
+/*placeholders to left*/
+::-webkit-input-placeholder { /* WebKit browsers */
+	text-align: left;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+	text-align: left;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+	text-align: left;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+	text-align: left;
+}
+
+/*remove chrome yello autofill*/
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+input::-webkit-calendar-picker-indicator {
+	margin-right: 0.5em;
+	width: 1.5em;
+	height: 1.5em;
+	opacity: 0;
 }

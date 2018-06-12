@@ -1,0 +1,128 @@
+import React, { Component } from 'react';
+// import { connect } from 'react-redux';
+// import { Route, withRouter } from 'react-router-dom';
+import './login.css';
+// import SignIn from './signIn';
+// import ResetPass from './resetPass';
+import MainHeader from '../sharedComponents/mainHeader';
+// import { firebaseAuth } from '../services/utils/api';
+// import { spinnerOnOff } from '../spinner/services/spinnerActions';
+// import { signInThunk, resetPassThunk } from './services/logInThunkActions';
+
+const initialState = {
+  signInInput: '',
+  passwordInput: '',
+  passResetInput: '',
+  signInInputPlaceholder: 'email',
+  passResetInputPlaceholder: 'email',
+  passwordInputPlaceholder: 'password'
+};
+
+class Login extends Component {
+
+  state = initialState;
+
+  // componentWillMount() {
+  //   this.props.history.push('/login');
+  //   this.props.spinnerOnOff(true);
+  //   firebaseAuth.onAuthStateChanged((user) => {
+  //     (user) ? this.props.history.push('/home') : this.props.spinnerOnOff(false);
+  //   });
+  // }
+
+  // navigateToResetPassword = () => {
+  //   this.props.history.push('/login/resetPassword');
+  // }
+  //
+  // navigateToLogIn = () => {
+  //   this.props.history.push('/login');
+  // }
+  //
+  // updatePlaceholder = (e) => {
+  //   const inputName = e.target.getAttribute('name');
+  //   const statePropertyName = inputName.concat("Placeholder");
+  //   (e.type === 'focus') ? this.setState({ [statePropertyName]: ''}) : this.setState({ [statePropertyName]: initialState[statePropertyName]});
+  // }
+  //
+  // updateInput = (e) => {
+  //   const inputName = e.target.getAttribute('name');
+  //   const inputValue = e.target.value;
+  //   this.setState({ [inputName]: inputValue });
+  // }
+  //
+  // resetInputs = () => {
+  //   this.setState(initialState);
+  // };
+  //
+  // signIn = (e) => {
+  //   e.preventDefault();
+  //   this.props.signInThunk({email: this.state.signInInput, password: this.state.passwordInput}).then(() => this.resetInputs());
+  // }
+  //
+  // resetPass = (e) => {
+  //   e.preventDefault();
+  //   this.props.resetPassThunk(this.state.passResetInput)
+  //     .then((results) => {
+  //       if (results === 'success') {
+  //         this.props.history.push('/login');
+  //       }
+  //       this.resetInputs()
+  //     });
+  // }
+
+  render() {
+    return (
+      <section>
+        <MainHeader>
+        	<div className="header-page-title"><h5>Bolao da Copa Login</h5></div>
+        </MainHeader>
+
+        {/* <section className="logo-container"> */}
+        {/* </section> */}
+
+        {/* <section className="login-form-container">
+          <Route exact path='/login/' render={() => (
+              <SignIn
+                signIn={this.signIn}
+                signInInput={this.state.signInInput}
+                passwordInput={this.state.passwordInput}
+                updateInput={this.updateInput}
+                updatePlaceholder={this.updatePlaceholder}
+                signInInputPlaceholder={this.state.signInInputPlaceholder}
+                passwordInputPlaceholder={this.state.passwordInputPlaceholder}
+                navigateToResetPassword={this.navigateToResetPassword}
+              />
+          )}/>
+          <Route exact path='/login/resetPassword' render={() => (
+              <ResetPass
+                resetPass={this.resetPass}
+                updateInput={this.updateInput}
+                passResetInput={this.state.passResetInput}
+                updatePlaceholder={this.updatePlaceholder}
+                passResetInputPlaceholder={this.state.passResetInputPlaceholder}
+                navigateToLogIn={this.navigateToLogIn}
+              />
+          )}/>
+        </section> */}
+      </section>
+    );
+  }
+};
+
+// function mapStateToProps ({ spinner }) {
+//     return {
+//       spinner
+//     };
+// }
+//
+// function mapDispatchToProps (dispatch) {
+//   return {
+//     spinnerOnOff: (data) => dispatch(spinnerOnOff(data)),
+//     signInThunk: (data) => dispatch(signInThunk(data)),
+//     resetPassThunk: (data) => dispatch(resetPassThunk(data))
+//   };
+// }
+
+export default Login;
+
+// export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login));
