@@ -7,7 +7,7 @@ import LargeButton from '../../sharedComponents/LargeButton';
 const SignIn = (props) => (
   <div>
     <form name="signin" onSubmit={props.signIn}>
-      <div className="login-fields-container blue-grey lighten-4">
+      <div className="login-fields-container grey lighten-5">
         <input
           name="signInInput"
           className="bolao-copa-input"
@@ -29,12 +29,12 @@ const SignIn = (props) => (
           onChange={props.updateInput}
         />
       </div>
-      <ViewNavLink navTitle="Forgot Password?" handleClick={props.navigateToResetPassword}/>
-      <LargeButton buttonText="Sign In" color="light-blue darken-1"/>
+      <ViewNavLink navTitle="Esqueceu sua senha?" handleClick={props.navigateToResetPassword}/>
+      <LargeButton buttonText="Entrar" color="light-blue darken-1"/>
     </form>
     <br></br>
     <LargeButton
-      buttonText="Create New Account"
+      buttonText="Cadastre-se"
       color="red accent-4"/>
   </div>
 );

@@ -16,7 +16,7 @@ const initialState = {
   passResetInput: '',
   signInInputPlaceholder: 'email',
   passResetInputPlaceholder: 'email',
-  passwordInputPlaceholder: 'password'
+  passwordInputPlaceholder: 'senha'
 };
 
 class Login extends Component {
