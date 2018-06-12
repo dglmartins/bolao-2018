@@ -38,7 +38,7 @@ class Login extends Component {
   navigateToLogIn = () => {
     this.props.history.push('/login');
   }
-  
+
   updatePlaceholder = (e) => {
     const inputName = e.target.getAttribute('name');
     const statePropertyName = inputName.concat("Placeholder");
@@ -75,7 +75,7 @@ class Login extends Component {
     return (
       <section>
         <MainHeader>
-          <h5>Bolao da Copa Login</h5>
+          <h5>Bolao da Copa</h5>
           <img src={ball}></img>
         </MainHeader>
 

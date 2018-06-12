@@ -2,7 +2,7 @@ import React from 'react';
 import './LargeButton.css';
 
 const LargeButton = (props) => (
-  <button className="large-button light-blue darken-1">
+  <button className={`large-button ${props.color}`}>
     {props.buttonText}
   </button>
 );
