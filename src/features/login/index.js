@@ -75,7 +75,7 @@ class Login extends Component {
     return (
       <section>
         <MainHeader>
-          <h5>Bolao da Copa</h5>
+          <p className="title">Bolao da Copa</p>
           <img src={ball}></img>
         </MainHeader>
 

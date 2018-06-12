@@ -1,0 +1,11 @@
+
+/*current user and sign out*/
+.current-user-container{
+  position: absolute;
+  top: 10px;
+  width: 15em;
+  right: 0;
+  overflow: auto;
+  font-size: 0.8em;
+
+}

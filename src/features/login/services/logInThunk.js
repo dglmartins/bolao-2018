@@ -37,3 +37,11 @@ export function resetPassThunk (email) {
     });
   };
 };
+
+export function signOutThunk () {
+  return function(dispatch, getState, api) {
+    api.firebaseAuth.signOut().then(() => {
+      dispatch(logInOut(null));
+    });
+  };
+};

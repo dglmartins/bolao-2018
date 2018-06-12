@@ -11,6 +11,11 @@
 	margin: 1em auto;
 }
 
+.title {
+  width: 100%;
+  font-size: 1.2em;
+  margin: 0 auto;
+}
 
 /*container for forms*/
 .login-form-container {

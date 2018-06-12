@@ -1,9 +1,11 @@
 import { user } from '../login/services/userReducer';
+import { header } from '../home/homeHeader/services/headerReducer';
+
 
 import  { combineReducers } from 'redux';
 
 export default combineReducers({
-  // header,
+  header,
   // subHeader,
   // sideMenu,
   user,

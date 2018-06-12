@@ -2,24 +2,26 @@ import React, { Component } from 'react';
 import './home.css';
 import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
-// import HomeHeader from './homeHeader';
+import HomeHeader from './homeHeader';
 // import SubHeader from './subHeader';
 // import AppData from './appData';
 // import SideMenu from './sideMenu';
 import { firebaseAuth } from '../services/utils/api';
 // import { spinnerOnOff } from '../spinner/services/spinnerActions';
 import { logInOut } from '../login/services/userActions';
+import { changeHeaderNameShowing } from './homeHeader/services/headerActions';
+
 // import { isAdminThunk } from './services/homeThunkActions';
 
 class Home extends Component {
 
   componentWillMount() {
-    firebaseAuth.onAuthStateChanged((user) => {
-      const { uid, email } = user;
-      if (user) {
-        this.props.logInOut({uid, email})
+    firebaseAuth.onAuthStateChanged((currentUser) => {
+      if (currentUser) {
+        this.props.logInOut(currentUser);
+        this.props.changeHeaderNameShowing(currentUser.email)
       } else {
-        alert("need to be signed in to see this page");
+        console.log("no user")
         this.props.history.push('/login');
       }
     });
@@ -28,8 +30,7 @@ class Home extends Component {
   render () {
     return (
       <section className="home-container">
-        Home
-        {/* <HomeHeader currentUser={this.props.user.currentUser}/> */}
+        <HomeHeader currentUser={this.props.user.currentUser}/>
         {/* <SubHeader /> */}
         {/* <AppData/> */}
         {/* <Route path="/home/sideMenu" component={SideMenu}/> */}
@@ -46,7 +47,8 @@ function mapStateToProps ({ user }) {
 
 function mapDispatchToProps (dispatch) {
   return {
-    logInOut: (data) => dispatch(logInOut(data))
+    logInOut: (data) => dispatch(logInOut(data)),
+    changeHeaderNameShowing: (data) => dispatch(changeHeaderNameShowing(data))
   };
 }
 
