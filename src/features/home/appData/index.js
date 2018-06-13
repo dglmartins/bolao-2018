@@ -21,7 +21,6 @@ class AppData extends Component {
     return (
       <section>
         <GroupTable group="A"/>
-
       </section>
     );
   }
