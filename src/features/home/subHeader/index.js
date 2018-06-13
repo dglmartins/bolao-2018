@@ -10,14 +10,10 @@ const SubHeader = (props) => {
     props.history.push('/home/roundOnePicks');
   }
   return (
-    <nav>
-     <div>
-       <ul style={{"width": "100%"}}>
-         <li className="nav-link" onClick={navitageToRoundOnePicks}>My Picks</li>
-         <li className="nav-link" onClick={navitageToStandings}>Group standings</li>
-       </ul>
-     </div>
-   </nav>
+   <div className="sub-header">
+     <div className="nav-link" onClick={navitageToRoundOnePicks}>My Picks</div>
+     <div className="nav-link" onClick={navitageToStandings}>Group standings</div>
+   </div>
   )
 };
 

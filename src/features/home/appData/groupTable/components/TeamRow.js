@@ -11,7 +11,7 @@ const TeamRow = (props) => {
       </td>
       <td className="left">{props.teamName}</td>
       {props.showScore && (
-        <td>{props.teamPoints}</td>
+        <td className="mid-align">{props.teamPoints}</td>
       )}
     </tr>
   )

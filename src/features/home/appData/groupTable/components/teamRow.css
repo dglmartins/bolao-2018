@@ -1,3 +1,13 @@
 .wide-td {
-  width: 50%
+  width: 50%;
+  height: 6em;
+}
+
+.left {
+  float: left;
+  line-height: 6em;
+}
+
+.mid-align {
+  text-align: center;
 }

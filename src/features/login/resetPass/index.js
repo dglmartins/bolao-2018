@@ -5,8 +5,9 @@ import LargeButton from '../../sharedComponents/LargeButton';
 
 const ResetPass = (props) => (
   <form name="reset" onSubmit={props.resetPass}>
-    <div className="recovery-fields-container grey lighten-5">
+    <div className="recovery-fields-container">
       <input
+        className="login-input"
         name="passResetInput"
         type="text"
         placeholder={props.passResetInputPlaceholder}
@@ -17,7 +18,7 @@ const ResetPass = (props) => (
       />
     </div>
     <ViewNavLink navTitle="Voltar para login" handleClick={props.navigateToLogIn}/>
-    <LargeButton buttonText="Recuperar senha" color="light-blue darken-1"/>
+    <LargeButton buttonText="Recuperar senha" color="blue-class"/>
 
   </form>
 );

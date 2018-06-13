@@ -24,7 +24,7 @@ const HomeHeader = (props) => {
   };
 
   return (
-    <header className="main-header red accent-4">
+    <header className="main-header">
       <div>
         {props.user.currentUser && (
           <div>

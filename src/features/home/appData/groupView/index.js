@@ -10,6 +10,7 @@ const GroupView = (props) => {
           groupName={group} group={props.groups[group]}
           key={group}
           showScore={true}
+          showPicker={false}
         />
       ))}
     </div>

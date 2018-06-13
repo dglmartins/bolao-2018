@@ -14,3 +14,11 @@
 .large-button:hover {
 	color: #c0c0c0;
 }
+
+.blue-class {
+	background-color: #0288d1;
+}
+
+.red-class {
+	background-color: #d50000;
+}
