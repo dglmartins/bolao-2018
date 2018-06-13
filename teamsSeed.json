@@ -1,0 +1,130 @@
+{
+  "Russia":{
+    "group": "A",
+    "pointsGroup": "0"
+  },
+  "Saudi Arabia":{
+    "group": "A",
+    "pointsGroup": "0"
+  },
+  "Egypt":{
+    "group": "A",
+    "pointsGroup": "0"
+  },
+  "Uruguay":{
+    "group": "A",
+    "pointsGroup": "0"
+  },
+  "Portugal":{
+    "group": "B",
+    "pointsGroup": "0"
+  },
+  "Spain":{
+    "group": "B",
+    "pointsGroup": "0"
+  },
+  "Morocco":{
+    "group": "B",
+    "pointsGroup": "0"
+  },
+  "Iran":{
+    "group": "B",
+    "pointsGroup": "0"
+  },
+  "France":{
+    "group": "C",
+    "pointsGroup": "0"
+  },
+  "Australia":{
+    "group": "C",
+    "pointsGroup": "0"
+  },
+  "Peru":{
+    "group": "C",
+    "pointsGroup": "0"
+  },
+  "Denmark":{
+    "group": "C",
+    "pointsGroup": "0"
+  },
+  "Argentina":{
+    "group": "D",
+    "pointsGroup": "0"
+  },
+  "Iceland":{
+    "group": "D",
+    "pointsGroup": "0"
+  },
+  "Croatia":{
+    "group": "D",
+    "pointsGroup": "0"
+  },
+  "Nigeria":{
+    "group": "D",
+    "pointsGroup": "0"
+  },
+  "Brazil":{
+    "group": "E",
+    "pointsGroup": "0"
+  },
+  "Switzerland":{
+    "group": "E",
+    "pointsGroup": "0"
+  },
+  "Costa Rica":{
+    "group": "E",
+    "pointsGroup": "0"
+  },
+  "Serbia":{
+    "group": "E",
+    "pointsGroup": "0"
+  },
+  "Germany":{
+    "group": "F",
+    "pointsGroup": "0"
+  },
+  "Mexico":{
+    "group": "F",
+    "pointsGroup": "0"
+  },
+  "Sweden":{
+    "group": "F",
+    "pointsGroup": "0"
+  },
+  "Korea":{
+    "group": "F",
+    "pointsGroup": "0"
+  },
+  "Belgium":{
+    "group": "G",
+    "pointsGroup": "0"
+  },
+  "Panama":{
+    "group": "G",
+    "pointsGroup": "0"
+  },
+  "Tunisia":{
+    "group": "G",
+    "pointsGroup": "0"
+  },
+  "England":{
+    "group": "G",
+    "pointsGroup": "0"
+  },
+  "Poland":{
+    "group": "H",
+    "pointsGroup": "0"
+  },
+  "Senegal":{
+    "group": "H",
+    "pointsGroup": "0"
+  },
+  "Colombia":{
+    "group": "H",
+    "pointsGroup": "0"
+  },
+  "Japan":{
+    "group": "H",
+    "pointsGroup": "0"
+  }
+}

@@ -3,8 +3,9 @@ import './home.css';
 import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import HomeHeader from './homeHeader';
+
 // import SubHeader from './subHeader';
-// import AppData from './appData';
+import AppData from './appData';
 // import SideMenu from './sideMenu';
 import { firebaseAuth } from '../services/utils/api';
 // import { spinnerOnOff } from '../spinner/services/spinnerActions';
@@ -30,10 +31,9 @@ class Home extends Component {
   render () {
     return (
       <section className="home-container">
-        home
         {/* <HomeHeader currentUser={this.props.user.currentUser}/> */}
         {/* <SubHeader /> */}
-        {/* <AppData/> */}
+        <AppData/>
         {/* <Route path="/home/sideMenu" component={SideMenu}/> */}
       </section>
     );

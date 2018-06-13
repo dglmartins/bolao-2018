@@ -24,7 +24,15 @@ html, body, main, h1, h2,
 html {
 	height: 100%;
 	font-size: 100%;
+}
 
+th, td, caption {
+	text-align: center;
+}
+
+caption {
+	font-weight: bold;
+	font-size: 1.2em;
 }
 
 body {
