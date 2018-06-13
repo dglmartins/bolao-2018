@@ -41,8 +41,15 @@ export function resetPassThunk (email) {
 export function createUserThunk ({email, password, displayName}) {
   return function(dispatch, getState, api) {
     return api.firebaseAuth.createUserWithEmailAndPassword(email.toLowerCase(), password)
-      .then((result) => {
-        result.user.updateProfile({displayName})
+      .then((res) => {
+        const { uid } = res.user
+        res.user.updateProfile({displayName})
+          .then(() => {
+            api.firebaseDb.ref('users/'  + uid).set({email, displayName})
+          .catch(function(error){
+            alert(error);
+          });
+        })
       })
       .catch(function(error) {
         alert(error)
