@@ -1,5 +1,5 @@
 import { user } from '../login/services/userReducer';
-import { header } from '../home/homeHeader/services/headerReducer';
+import { header } from '../sharedComponents/mainHeader/services/headerReducer';
 
 
 import  { combineReducers } from 'redux';

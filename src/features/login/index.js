@@ -8,7 +8,6 @@ import MainHeader from '../sharedComponents/mainHeader';
 import { firebaseAuth } from '../services/utils/api';
 // import { spinnerOnOff } from '../spinner/services/spinnerActions';
 import { signInThunk, resetPassThunk } from './services/logInThunk';
-import ball from '../assets/ball.png';
 
 const initialState = {
   signInInput: '',
@@ -74,10 +73,6 @@ class Login extends Component {
   render() {
     return (
       <section>
-        <MainHeader>
-          <p className="title">Bolao da Copa</p>
-          <img src={ball}></img>
-        </MainHeader>
 
         <section className="logo-container">
         </section>

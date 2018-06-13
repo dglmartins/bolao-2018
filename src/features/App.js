@@ -6,13 +6,15 @@ import './normalize.css'
 
 import Home from './home';
 import Login from './login';
+import MainHeader from './sharedComponents/mainHeader';
 // import Spinner from './spinner';
 import './App.css';
 
 
 const App = (props) => (
   <div className="overall-container">
-    <Switch>
+    <MainHeader/>
+      <Switch>
       <Route path='/home' component={Home}/>
 
       <Route path='/login' component={Login}/>

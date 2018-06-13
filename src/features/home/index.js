@@ -30,7 +30,8 @@ class Home extends Component {
   render () {
     return (
       <section className="home-container">
-        <HomeHeader currentUser={this.props.user.currentUser}/>
+        home
+        {/* <HomeHeader currentUser={this.props.user.currentUser}/> */}
         {/* <SubHeader /> */}
         {/* <AppData/> */}
         {/* <Route path="/home/sideMenu" component={SideMenu}/> */}
