@@ -12,7 +12,7 @@ import { firebaseAuth } from '../services/utils/api';
 import { logInOut } from '../login/services/userActions';
 import { changeHeaderNameShowing } from './homeHeader/services/headerActions';
 
-// import { isAdminThunk } from './services/homeThunkActions';
+import { getOnceAllGroups } from './services/getDataThunk';
 
 class Home extends Component {
 
@@ -21,6 +21,7 @@ class Home extends Component {
       if (currentUser) {
         this.props.logInOut(currentUser);
         this.props.changeHeaderNameShowing(currentUser.displayName)
+        this.props.getOnceAllGroups()
       } else {
         console.log("no user")
         this.props.history.push('/login');
@@ -49,7 +50,8 @@ function mapStateToProps ({ user }) {
 function mapDispatchToProps (dispatch) {
   return {
     logInOut: (data) => dispatch(logInOut(data)),
-    changeHeaderNameShowing: (data) => dispatch(changeHeaderNameShowing(data))
+    changeHeaderNameShowing: (data) => dispatch(changeHeaderNameShowing(data)),
+    getOnceAllGroups: () => dispatch(getOnceAllGroups())
   };
 }
 

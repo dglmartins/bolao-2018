@@ -1,13 +1,13 @@
 import { user } from '../login/services/userReducer';
 import { header } from '../sharedComponents/mainHeader/services/headerReducer';
+import { groups } from '../home/services/reducers/groupsReducer';
 
 
 import  { combineReducers } from 'redux';
 
 export default combineReducers({
   header,
-  // subHeader,
-  // sideMenu,
+  groups,
   user,
   // spinner,
   // filterIndexBy,
