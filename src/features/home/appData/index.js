@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route, withRouter, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
-import GroupTable from './groupTable';
+import GroupView from './groupView';
 class AppData extends Component {
   componentWillMount() {
     // this.props.spinnerOnOff(true);
@@ -20,7 +20,7 @@ class AppData extends Component {
     // const { gotAll } = this.props
     return (
       <section>
-        <GroupTable group="A"/>
+        <Route path='/home/groupStandings' component={GroupView}/>
       </section>
     );
   }

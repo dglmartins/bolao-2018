@@ -1,14 +1,15 @@
 import React from 'react';
+import { getCountryStyle } from '../../../../services/utils/helpers';
+import './teamRow.css'
 
 
 const TeamRow = (props) => {
-  console.log(props)
+  const style = getCountryStyle(props.teamName)
   return (
     <tr onClick={props.handleSelect}>
-      <td>
-        <img src={props.teamImg} alt={props.teamName} height="80" width="80"/>
+      <td className="wide-td" style={style}>
       </td>
-      <td>{props.teamName}</td>
+      <td className="left">{props.teamName}</td>
       <td>{props.teamPoints}</td>
     </tr>
   )
