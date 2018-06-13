@@ -2,8 +2,8 @@ import React from 'react';
 import './headerUserInfo.css'
 
 const HeaderUserInfo = (props) => (
-  <div className="current-user-info" onClick={props.handleClick}>
-    <p>{props.title}</p>  
+  <div className="current-user">
+    <p>{props.title}</p>
   </div>
 );
 

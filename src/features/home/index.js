@@ -4,7 +4,7 @@ import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import HomeHeader from './homeHeader';
 
-// import SubHeader from './subHeader';
+import SubHeader from './subHeader';
 import AppData from './appData';
 // import SideMenu from './sideMenu';
 import { firebaseAuth } from '../services/utils/api';
@@ -33,7 +33,7 @@ class Home extends Component {
     return (
       <section className="home-container">
         {/* <HomeHeader currentUser={this.props.user.currentUser}/> */}
-        {/* <SubHeader /> */}
+        <SubHeader/>
         <AppData/>
         {/* <Route path="/home/sideMenu" component={SideMenu}/> */}
       </section>

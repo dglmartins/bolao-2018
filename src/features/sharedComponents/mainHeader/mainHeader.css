@@ -9,23 +9,23 @@
   width: 100%;
 	text-align: center;
 	color: white;
-	margin-bottom: 1em;
 }
 
 /*menu icon*/
-.menu-icon {
+.signout {
   position: absolute;
   left: 0;
-  top: 10px;
+  top: 15px;
   min-height: 3em;
+	margin-left: 1em;
   min-width: 4em;
-	background-image: url(../../assets/ic_menu.png);
-	background-repeat: no-repeat;
-	background-position: contain;
-	background-size: contain;
   float: left;
   cursor: pointer;
-  /*font-size: 0;*/
+  font-size: 0.8em;
+}
+
+.signout:hover {
+  color:#c0c0c0;
 }
 
 .title {
@@ -34,18 +34,6 @@
   margin: 0 auto;
 }
 
-.current-user-info {
-  height: 3em;
-  line-height: 3em;
-  float: right;
-  color:#fff;
-  margin-right: 1em;
-}
-
-.current-user-info:hover {
-  color:#c0c0c0;
-  cursor: pointer;
-}
 
 /*for responsive design in narrower screens*/
 @media (max-width: 450px) {

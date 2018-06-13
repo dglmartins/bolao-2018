@@ -11,13 +11,13 @@ const HomeHeader = (props) => {
   // const navigateToSideMenu = () => {
   //    props.history.push('/home/sideMenu');
   //  };
-  const updateHeaderName = (e) => {
-    if (props.user.currentUser) {
-      (e.type === "mouseenter") ?
-      props.changeHeaderNameShowing('Sign Out')  :
-      props.changeHeaderNameShowing(props.user.currentUser.displayName)
-    }
-  };
+  // const updateHeaderName = (e) => {
+  //   if (props.user.currentUser) {
+  //     (e.type === "mouseenter") ?
+  //     props.changeHeaderNameShowing('Sign Out')  :
+  //     props.changeHeaderNameShowing(props.user.currentUser.displayName)
+  //   }
+  // };
 
   const signOut = () => {
     props.signOutThunk();
@@ -25,14 +25,15 @@ const HomeHeader = (props) => {
 
   return (
     <header className="main-header red accent-4">
-      <div onMouseEnter={updateHeaderName} onMouseLeave={updateHeaderName}>
+      <div>
         {props.user.currentUser && (
           <div>
-            <div className="menu-icon">
+            <div className="signout" onClick={signOut}>
+              Sign out
             {/* <div className="menu-icon" onClick={navigateToSideMenu}> */}
             </div>
-            <HeaderUserContainer handleMouse={updateHeaderName}>
-              <HeaderUserInfo title={props.nameShowing}  handleClick={signOut}/>
+            <HeaderUserContainer>
+              <HeaderUserInfo title={props.nameShowing}/>
             </HeaderUserContainer>
           </div>
         )}

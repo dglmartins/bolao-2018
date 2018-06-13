@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import GroupTable from '../groupTable';
 
 const GroupView = (props) => {
-  console.log(props)
   return (
     <div>
       {props.groupsNames.map((group) => (

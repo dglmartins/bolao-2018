@@ -9,7 +9,6 @@ const GroupTable = (props) => {
   const handleSelect = (e) => {
     console.log(e.target)
   }
-  console.log(Object.keys(props.group))
   return (
     <table className="group-table">
       <caption>{`Group ${props.groupName}`}</caption>
