@@ -10,7 +10,9 @@ const TeamRow = (props) => {
       <td className="wide-td" style={style}>
       </td>
       <td className="left">{props.teamName}</td>
-      <td>{props.teamPoints}</td>
+      {props.showScore && (
+        <td>{props.teamPoints}</td>
+      )}
     </tr>
   )
 };

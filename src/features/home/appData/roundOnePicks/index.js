@@ -2,14 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import GroupTable from '../groupTable';
 
-const GroupView = (props) => {
+const RoundOnePicks = (props) => {
   return (
     <div>
       {props.groupsNames.map((group) => (
         <GroupTable
           groupName={group} group={props.groups[group]}
           key={group}
-          showScore={true}
+          showScore={false}
         />
       ))}
     </div>
@@ -25,4 +25,4 @@ function mapStateToProps({ groups }) {
   }
 }
 
-export default connect(mapStateToProps)(GroupView);
+export default connect(mapStateToProps)(RoundOnePicks);

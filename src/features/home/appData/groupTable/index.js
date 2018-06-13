@@ -15,7 +15,9 @@ const GroupTable = (props) => {
       <tbody>
         <tr>
           <th colSpan="2">Team</th>
-          <th>points</th>
+          {props.showScore && (
+            <th>points</th>
+          )}
         </tr>
 
         {Object.keys(props.group).map((team) => (
@@ -24,6 +26,7 @@ const GroupTable = (props) => {
             teamPoints={0}
             handleSelect={handleSelect}
             key={team}
+            showScore={props.showScore}
           />
         ))}
       </tbody>

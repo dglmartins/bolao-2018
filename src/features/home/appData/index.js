@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route, withRouter, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import GroupView from './groupView';
+import RoundOnePicks from './roundOnePicks';
 class AppData extends Component {
   componentWillMount() {
     // this.props.spinnerOnOff(true);
@@ -20,7 +21,10 @@ class AppData extends Component {
     // const { gotAll } = this.props
     return (
       <section>
-        <Route path='/home/groupStandings' component={GroupView}/>
+        <Switch>
+          <Route path='/home/groupStandings' component={GroupView}/>
+          <Route path='/home/roundOnePicks' component={RoundOnePicks}/>
+        </Switch>
       </section>
     );
   }
