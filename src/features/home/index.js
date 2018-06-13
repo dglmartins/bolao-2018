@@ -19,7 +19,7 @@ class Home extends Component {
     firebaseAuth.onAuthStateChanged((currentUser) => {
       if (currentUser) {
         this.props.logInOut(currentUser);
-        this.props.changeHeaderNameShowing(currentUser.email)
+        this.props.changeHeaderNameShowing(currentUser.displayName)
       } else {
         console.log("no user")
         this.props.history.push('/login');

@@ -38,6 +38,18 @@ export function resetPassThunk (email) {
   };
 };
 
+export function createUserThunk ({email, password, displayName}) {
+  return function(dispatch, getState, api) {
+    return api.firebaseAuth.createUserWithEmailAndPassword(email.toLowerCase(), password)
+      .then((result) => {
+        result.user.updateProfile({displayName})
+      })
+      .catch(function(error) {
+        alert(error)
+      })
+  }
+}
+
 export function signOutThunk () {
   return function(dispatch, getState, api) {
     api.firebaseAuth.signOut().then(() => {

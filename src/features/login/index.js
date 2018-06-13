@@ -1,21 +1,24 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Route } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import './login.css';
 import SignIn from './signIn';
 import ResetPass from './resetPass';
 import MainHeader from '../sharedComponents/mainHeader';
 import { firebaseAuth } from '../services/utils/api';
 // import { spinnerOnOff } from '../spinner/services/spinnerActions';
-import { signInThunk, resetPassThunk } from './services/logInThunk';
+import { signInThunk, resetPassThunk, createUserThunk } from './services/logInThunk';
 
 const initialState = {
   signInInput: '',
+  nameInput: '',
   passwordInput: '',
   passResetInput: '',
   signInInputPlaceholder: 'email',
   passResetInputPlaceholder: 'email',
-  passwordInputPlaceholder: 'senha'
+  passwordInputPlaceholder: 'senha',
+  nameInputPlaceholder: 'nome',
+  creatingUser: false
 };
 
 class Login extends Component {
@@ -34,7 +37,13 @@ class Login extends Component {
     this.props.history.push('/login/resetPassword');
   }
 
+  navigateToCreateUser = () => {
+    this.setState(initialState);
+    this.props.history.push('/login/createUser');
+  }
+
   navigateToLogIn = () => {
+    this.setState(initialState);
     this.props.history.push('/login');
   }
 
@@ -57,6 +66,15 @@ class Login extends Component {
   signIn = (e) => {
     e.preventDefault();
     this.props.signInThunk({email: this.state.signInInput, password: this.state.passwordInput}).then(() => this.resetInputs());
+  }
+
+  createUser = (e) => {
+    e.preventDefault();
+    this.props.createUserThunk({email: this.state.signInInput, password: this.state.passwordInput, displayName: this.state.nameInput}).then((results) => {
+      console.log(results)
+      this.resetInputs()
+    });
+
   }
 
   resetPass = (e) => {
@@ -87,7 +105,9 @@ class Login extends Component {
                 signInInputPlaceholder={this.state.signInInputPlaceholder}
                 passwordInputPlaceholder={this.state.passwordInputPlaceholder}
                 navigateToResetPassword={this.navigateToResetPassword}
-                signIn={this.signIn}
+                navigateToCreateUser={this.navigateToCreateUser}
+                onSubmit={this.signIn}
+                creatingUser={false}
               />
 
 
@@ -101,6 +121,22 @@ class Login extends Component {
                 passResetInputPlaceholder={this.state.passResetInputPlaceholder}
                 navigateToLogIn={this.navigateToLogIn}
               />
+          )}/>
+          <Route exact path='/login/createUser' render={() => (
+            <SignIn
+              signInInput={this.state.signInInput}
+              passwordInput={this.state.passwordInput}
+              nameInput={this.state.nameInput}
+              updateInput={this.updateInput}
+              updatePlaceholder={this.updatePlaceholder}
+              signInInputPlaceholder={this.state.signInInputPlaceholder}
+              passwordInputPlaceholder={this.state.passwordInputPlaceholder}
+              nameInputPlaceholder={this.state.nameInputPlaceholder}
+              navigateToLogIn={this.navigateToLogIn}
+              creatingUser={true}
+              onSubmit={this.createUser}
+            />
+
           )}/>
         </section>
       </section>
@@ -118,9 +154,10 @@ class Login extends Component {
 function mapDispatchToProps (dispatch) {
   return {
     signInThunk: (data) => dispatch(signInThunk(data)),
-    resetPassThunk: (data) => dispatch(resetPassThunk(data))
+    resetPassThunk: (data) => dispatch(resetPassThunk(data)),
+    createUserThunk: (data) => dispatch(createUserThunk(data))
   }
 }
 
 
-export default connect(null, mapDispatchToProps)(Login);
+export default withRouter(connect(null, mapDispatchToProps)(Login));

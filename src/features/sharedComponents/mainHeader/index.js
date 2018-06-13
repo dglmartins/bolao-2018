@@ -15,7 +15,7 @@ const HomeHeader = (props) => {
     if (props.user.currentUser) {
       (e.type === "mouseenter") ?
       props.changeHeaderNameShowing('Sign Out')  :
-      props.changeHeaderNameShowing(props.user.currentUser.email)
+      props.changeHeaderNameShowing(props.user.currentUser.displayName)
     }
   };
 
