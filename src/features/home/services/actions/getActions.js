@@ -1,5 +1,7 @@
 export const GET_STATUS = 'GET_STATUS';
 export const GET_TOP_SCORERS = 'GET_TOP_SCORERS';
+export const GET_TEAMS = 'GET_TEAMS';
+
 
 
 export function getStatus(status) {
@@ -13,5 +15,12 @@ export function getTopScorers(scorers) {
   return {
     type: GET_TOP_SCORERS,
     scorers
+  }
+}
+
+export function getTeams(teams) {
+  return {
+    type: GET_TEAMS,
+    teams
   }
 }

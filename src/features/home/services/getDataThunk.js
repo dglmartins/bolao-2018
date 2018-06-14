@@ -2,6 +2,8 @@ import { getGroups } from './actions/groupsActions';
 import { getRoundOnePicks, getTopScorerPick} from './actions/picksActions';
 import { getStatus } from './actions/getActions';
 import { getTopScorers } from './actions/getActions';
+import { getTeams } from './actions/getActions';
+
 
 export function getOnceAllGroups () {
   return function(dispatch, getState, api) {
@@ -26,6 +28,15 @@ export function getTopScorersThunk () {
     const ref = api.firebaseDb.ref().child("topScorers").orderByKey();
     return ref.once('value').then((snapshot) => {
       dispatch(getTopScorers(snapshot.val()));
+    });
+  };
+};
+
+export function getTeamsThunk () {
+  return function(dispatch, getState, api) {
+    const ref = api.firebaseDb.ref().child("teams").orderByKey();
+    return ref.once('value').then((snapshot) => {
+      dispatch(getTeams(snapshot.val()));
     });
   };
 };
