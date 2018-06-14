@@ -1,5 +1,5 @@
 import { GET_TEAMS } from '../actions/getActions';
-// import { GET_TOP_SCORER_PICK } from '../actions/picksActions';
+import { GET_TEAM_PICK } from '../actions/picksActions';
 
 export function teams (state = {}, action) {
   const { teams } = action
@@ -11,15 +11,15 @@ export function teams (state = {}, action) {
   }
 };
 
-// export function topScorerPick (state = {pick: "disabled"}, action) {
-//   const { scorer } = action;
-//   switch (action.type) {
-//     case GET_TOP_SCORER_PICK:
-//       return {
-//         ...state,
-//         pick: scorer
-//       };
-//     default:
-//     return state;
-//   }
-// }
+export function teamPick (state = {pick: "disabled"}, action) {
+  const { team } = action;
+  switch (action.type) {
+    case GET_TEAM_PICK:
+      return {
+        ...state,
+        pick: team
+      };
+    default:
+    return state;
+  }
+}

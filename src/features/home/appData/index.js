@@ -27,6 +27,7 @@ class AppData extends Component {
               <RoundOnePicks
                 roundOnePicks={this.props.roundOnePicks}
                 topScorerPick={this.props.topScorerPick}
+                teamPick={this.props.teamPick}
               />
           )}/>
         </Switch>

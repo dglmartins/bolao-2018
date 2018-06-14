@@ -4,6 +4,8 @@ import GroupTable from '../groupTable';
 import RoundOnePicker from '../roundOnePicker';
 import './roundOnePicks.css';
 import TopScorerPicker from '../topScorerPicker';
+import TeamsPicker from '../teamsPicker';
+
 
 class RoundOnePicks extends Component {
   render() {
@@ -34,19 +36,26 @@ class RoundOnePicks extends Component {
           <TopScorerPicker topScorers={this.props.topScorers}
           topScorerPick={this.props.topScorerPick}/>
         </div>
+        <div>
+          <TeamsPicker
+            teams={this.props.teams}
+            teamPick={this.props.teamPick}
+          />
+        </div>
       </div>
     )
   }
 }
 
-function mapStateToProps({ groups, status, topScorers }) {
+function mapStateToProps({ groups, status, topScorers, teams }) {
   return {
     groupsNames: Object.keys(groups).map((group) => (
       group
     )),
     groups,
     status,
-    topScorers
+    topScorers,
+    teams
   }
 }
 

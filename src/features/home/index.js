@@ -9,7 +9,7 @@ import { firebaseAuth } from '../services/utils/api';
 import { logInOut } from '../login/services/userActions';
 import { changeHeaderNameShowing } from '../sharedComponents//mainHeader/services/headerActions';
 
-import { getOnceAllGroups, getOnceMyRoundOnePicks, getStatusThunk, getTopScorersThunk, getTopScorerPickThunk, getTeamsThunk } from './services/getDataThunk';
+import { getOnceAllGroups, getOnceMyRoundOnePicks, getStatusThunk, getTopScorersThunk, getTopScorerPickThunk, getTeamsThunk, getTeamPickThunk } from './services/getDataThunk';
 import { spinnerOnOff } from '../spinner/services/spinnerActions';
 
 
@@ -21,7 +21,7 @@ class Home extends Component {
       if (currentUser) {
         this.props.logInOut(currentUser);
         this.props.changeHeaderNameShowing(currentUser.displayName)
-        Promise.all([this.props.getOnceAllGroups(), this.props.getOnceMyRoundOnePicks(currentUser.uid), this.props.getStatusThunk(), this.props.getTopScorersThunk(), this.props.getTopScorerPickThunk(currentUser.uid), this.props.getTeamsThunk()]).then(() =>{
+        Promise.all([this.props.getOnceAllGroups(), this.props.getOnceMyRoundOnePicks(currentUser.uid), this.props.getStatusThunk(), this.props.getTopScorersThunk(), this.props.getTopScorerPickThunk(currentUser.uid), this.props.getTeamsThunk(), this.props.getTeamPickThunk(currentUser.uid)]).then(() =>{
           this.props.spinnerOnOff(false);
         })
       } else {
@@ -40,6 +40,7 @@ class Home extends Component {
         <AppData
           roundOnePicks={this.props.roundOnePicks}
           topScorerPick={this.props.topScorerPick}
+          teamPick={this.props.teamPick}
         />
         {/* <Route path="/home/sideMenu" component={SideMenu}/> */}
       </section>
@@ -47,11 +48,12 @@ class Home extends Component {
   }
 }
 
-function mapStateToProps ({ user, roundOnePicks, topScorerPick }) {
+function mapStateToProps ({ user, roundOnePicks, topScorerPick, teamPick }) {
     return {
       user,
       roundOnePicks,
-      topScorerPick
+      topScorerPick,
+      teamPick
     };
 }
 
@@ -65,7 +67,8 @@ function mapDispatchToProps (dispatch) {
     spinnerOnOff: (data) => dispatch(spinnerOnOff(data)),
     getTopScorersThunk: () => dispatch(getTopScorersThunk()),
     getTopScorerPickThunk: (data) => dispatch(getTopScorerPickThunk(data)),
-    getTeamsThunk: () => dispatch(getTeamsThunk())
+    getTeamsThunk: () => dispatch(getTeamsThunk()),
+    getTeamPickThunk: (data) => dispatch(getTeamPickThunk(data))
   };
 }
 

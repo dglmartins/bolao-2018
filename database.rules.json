@@ -21,6 +21,14 @@
              ".validate": "newData.val() === auth.uid"
           },
       }
+    },
+    "teamPicks": {
+      "$teamPick": {
+        ".write": "root.child('teamPicks/'+$teamPick+'/user'+auth.uid).exists() || newData.child('user').exists()",
+        "user": {
+             ".validate": "newData.val() === auth.uid"
+          },
+      }
     }
   }
 }
