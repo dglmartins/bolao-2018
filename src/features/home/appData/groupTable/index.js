@@ -13,7 +13,12 @@ const GroupTable = (props) => {
     <table className="group-table">
       <caption>{`Group ${props.groupName}`}</caption>
       <tbody>
-    
+        <tr className="row">
+          <th className="table-head" colSpan="2">Team</th>
+          {props.showScore && (
+            <th className="table-head">points</th>
+          )}
+        </tr>
         {Object.keys(props.group).map((team) => (
           <TeamRow
             teamName={team}

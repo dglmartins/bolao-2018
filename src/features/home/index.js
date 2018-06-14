@@ -36,16 +36,17 @@ class Home extends Component {
       <section className="home-container">
         {/* <HomeHeader currentUser={this.props.user.currentUser}/> */}
         <SubHeader/>
-        <AppData/>
+        <AppData roundOnePicks={this.props.roundOnePicks}/>
         {/* <Route path="/home/sideMenu" component={SideMenu}/> */}
       </section>
     );
   }
 }
 
-function mapStateToProps ({ user }) {
+function mapStateToProps ({ user, roundOnePicks }) {
     return {
-      user
+      user,
+      roundOnePicks
     };
 }
 

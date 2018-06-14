@@ -5,7 +5,19 @@
 }
 
 caption {
-  background-color: #fafafa;
+  background-color: #d50000;
   line-height: 4em;
-  margin-bottom: 1em;
+  color: white;
+}
+
+.row {
+  width: 100%;
+  line-height: 3em;
+  height: 3em;
+  background-color: #e3f2fd;
+  color: black;
+}
+
+.table-head {
+  height: 3em;
 }

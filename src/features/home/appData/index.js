@@ -23,7 +23,11 @@ class AppData extends Component {
       <section>
         <Switch>
           <Route path='/home/groupStandings' component={GroupView}/>
-          <Route path='/home/roundOnePicks' component={RoundOnePicks}/>
+          <Route path='/home/roundOnePicks' render={() => (
+              <RoundOnePicks
+                roundOnePicks={this.props.roundOnePicks}
+              />
+          )}/>
         </Switch>
       </section>
     );

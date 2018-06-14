@@ -1,13 +1,32 @@
-.wide-td {
-  width: 50%;
-  height: 6em;
+.flag-td {
+  width: 20%;
+  height: 8em;
+  border-bottom: 1px solid gray;
+
 }
 
-.left {
-  float: left;
-  line-height: 6em;
+.name-td {
+  width: 20%;
+  height: 8em;
+  text-align: center;
+  border-bottom: 1px solid gray;
+
 }
+
+.narrow-td {
+  width: 20%;
+  border-bottom: 1px solid gray;
+
+}
+
+
 
 .mid-align {
   text-align: center;
+  border-bottom: 1px solid gray;
+
+}
+
+.team-row {
+  border-bottom: 1px solid gray;
 }

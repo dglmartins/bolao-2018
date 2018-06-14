@@ -1,23 +1,29 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import GroupTable from '../groupTable';
 import RoundOnePicker from '../roundOnePicker';
 
-const RoundOnePicks = (props) => {
-  return (
-    <div>
-      {props.groupsNames.map((group) => (
-        <div key={group}>
-          <GroupTable
-            groupName={group} group={props.groups[group]}
-            showScore={false}
-          />
-          <RoundOnePicker/>
-        </div>
-      ))}
-    </div>
-  );
-};
+class RoundOnePicks extends Component {
+  render() {
+    return (
+      <div>
+        {this.props.groupsNames.map((group) => (
+          <div key={group}>
+            <RoundOnePicker
+              roundOnePicks={this.props.roundOnePicks[group]}
+              groupName={group}
+              group={this.props.groups[group]}
+            />
+            <GroupTable
+              groupName={group} group={this.props.groups[group]}
+              showScore={false}
+            />
+          </div>
+        ))}
+      </div>
+    )
+  }
+}
 
 function mapStateToProps({ groups }) {
   return {

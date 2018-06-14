@@ -7,11 +7,11 @@ const TeamRow = (props) => {
   const style = getCountryStyle(props.teamName)
   return (
     <tr onClick={props.handleSelect}>
-      <td className="wide-td" style={style}>
+      <td className="flag-td" style={style}>
       </td>
-      <td className="left">{props.teamName}</td>
+      <td className="name-td">{props.teamName}</td>
       {props.showScore && (
-        <td className="mid-align">{props.teamPoints}</td>
+        <td className="narrow-td mid-align">{props.teamPoints}</td>
       )}
     </tr>
   )
