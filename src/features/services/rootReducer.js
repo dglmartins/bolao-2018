@@ -1,6 +1,7 @@
 import { user } from '../login/services/userReducer';
 import { header } from '../sharedComponents/mainHeader/services/headerReducer';
 import { groups } from '../home/services/reducers/groupsReducer';
+import { status } from '../home/services/reducers/statusReducer';
 import { roundOnePicks } from '../home/services/reducers/roundOnePicksReducer';
 
 
@@ -11,7 +12,7 @@ export default combineReducers({
   groups,
   user,
   roundOnePicks,
-  // spinner,
+  status,
   // filterIndexBy,
   // products,
   // companies,

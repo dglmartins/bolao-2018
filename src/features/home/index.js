@@ -10,7 +10,7 @@ import { firebaseAuth } from '../services/utils/api';
 import { logInOut } from '../login/services/userActions';
 import { changeHeaderNameShowing } from '../sharedComponents//mainHeader/services/headerActions';
 
-import { getOnceAllGroups, getOnceMyRoundOnePicks} from './services/getDataThunk';
+import { getOnceAllGroups, getOnceMyRoundOnePicks, getStatusThunk } from './services/getDataThunk';
 
 
 class Home extends Component {
@@ -20,8 +20,7 @@ class Home extends Component {
       if (currentUser) {
         this.props.logInOut(currentUser);
         this.props.changeHeaderNameShowing(currentUser.displayName)
-        this.props.getOnceAllGroups()
-        this.props.getOnceMyRoundOnePicks(currentUser.uid)
+        Promise.all([this.props.getOnceAllGroups(), this.props.getOnceMyRoundOnePicks(currentUser.uid), this.props.getStatusThunk()])
       } else {
         console.log("no user")
         this.props.history.push('/login');
@@ -53,7 +52,8 @@ function mapDispatchToProps (dispatch) {
     logInOut: (data) => dispatch(logInOut(data)),
     changeHeaderNameShowing: (data) => dispatch(changeHeaderNameShowing(data)),
     getOnceAllGroups: () => dispatch(getOnceAllGroups()),
-    getOnceMyRoundOnePicks: (data) => dispatch(getOnceMyRoundOnePicks(data))
+    getOnceMyRoundOnePicks: (data) => dispatch(getOnceMyRoundOnePicks(data)),
+    getStatusThunk: () => dispatch(getStatusThunk())
   };
 }
 

@@ -2,11 +2,18 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import GroupTable from '../groupTable';
 import RoundOnePicker from '../roundOnePicker';
+import './roundOnePicks.css';
 
 class RoundOnePicks extends Component {
   render() {
     return (
       <div>
+        <div className="pick-status">
+          Status: {this.props.status.roundOnePicks ?
+            "open for picks" :
+            "closed for picks"
+          }
+        </div>
         {this.props.groupsNames.map((group) => (
           <div key={group}>
             <RoundOnePicker
@@ -25,12 +32,13 @@ class RoundOnePicks extends Component {
   }
 }
 
-function mapStateToProps({ groups }) {
+function mapStateToProps({ groups, status }) {
   return {
     groupsNames: Object.keys(groups).map((group) => (
       group
     )),
-    groups
+    groups,
+    status
   }
 }
 
