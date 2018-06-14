@@ -1,4 +1,6 @@
 import { changePick } from './actions/picksActions';
+import { getTopScorerPick } from './actions/picksActions';
+
 
 export function createPick({uid, group, whichPick, pick}) {
   const pickId = `${group}-${whichPick}-${uid}`;
@@ -11,6 +13,20 @@ export function createPick({uid, group, whichPick, pick}) {
       ref.update(updates).then((results) => {
         dispatch(changePick({group, whichPick, pick}))
       })
+    });
+  };
+};
+
+export function setTopScorerPick({uid, topScorerPick}) {
+  console.log(uid, topScorerPick)
+  const pickId = uid;
+  const updates = {}
+  updates[`users/${uid}/topScorerPick`] = topScorerPick;
+  updates[`topScorerPicks/${pickId}`] = {user: uid, pick: topScorerPick};
+  return function(dispatch, getState, api) {
+    const ref = api.firebaseDb.ref();
+    return ref.update(updates).then(() => {
+      dispatch(getTopScorerPick(topScorerPick))
     });
   };
 };

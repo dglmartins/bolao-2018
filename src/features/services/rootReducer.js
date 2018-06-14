@@ -2,7 +2,9 @@ import { user } from '../login/services/userReducer';
 import { header } from '../sharedComponents/mainHeader/services/headerReducer';
 import { groups } from '../home/services/reducers/groupsReducer';
 import { status } from '../home/services/reducers/statusReducer';
+import { topScorers } from '../home/services/reducers/topScorersReducer';
 import { roundOnePicks } from '../home/services/reducers/roundOnePicksReducer';
+import { topScorerPick } from '../home/services/reducers/topScorersReducer';
 import { spinner } from '../spinner/services/spinnerReducer';
 
 
@@ -14,7 +16,9 @@ export default combineReducers({
   user,
   roundOnePicks,
   status,
-  spinner
+  spinner,
+  topScorers,
+  topScorerPick
   // filterIndexBy,
   // products,
   // companies,

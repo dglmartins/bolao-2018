@@ -26,6 +26,7 @@ class AppData extends Component {
           <Route path='/home/roundOnePicks' render={() => (
               <RoundOnePicks
                 roundOnePicks={this.props.roundOnePicks}
+                topScorerPick={this.props.topScorerPick}
               />
           )}/>
         </Switch>

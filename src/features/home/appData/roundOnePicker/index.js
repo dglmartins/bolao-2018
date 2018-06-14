@@ -49,7 +49,7 @@ class RoundOnePicker extends Component {
           </tr>
           <tr>
             <td>
-              <select className="book-shelf-changer" value={this.props.roundOnePicks.firstPlacePick} onChange={this.changePickOne}>
+              <select className="changer" value={this.props.roundOnePicks.firstPlacePick} onChange={this.changePickOne}>
                 <option value="disabled" disabled>-----</option>
                 {Object.keys(this.props.group).map((team) => (
                   <option key={team} value={team}>{team}</option>
@@ -57,7 +57,7 @@ class RoundOnePicker extends Component {
               </select>
             </td>
             <td>
-              <select className="book-shelf-changer" value={this.props.roundOnePicks.secondPlacePick} onChange={this.changePickTwo}>
+              <select className="changer" value={this.props.roundOnePicks.secondPlacePick} onChange={this.changePickTwo}>
                 <option value="disabled" disabled>------</option>
                 {Object.keys(this.props.group).map((team) => (
                   <option key={team} value={team}>{team}</option>

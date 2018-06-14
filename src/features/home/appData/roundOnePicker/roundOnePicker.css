@@ -2,13 +2,13 @@
   width: 50%;
 }
 
-.book-shelf-changer {
+.changer {
   width: 80%;
   margin-left: 10%;
   border-radius: 50%;
   margin-bottom: 2em;
 }
-.book-shelf-changer select {
+.changer select {
   width: 100%;
   height: 100%;
   opacity: 0;

@@ -9,7 +9,7 @@ import { firebaseAuth } from '../services/utils/api';
 import { logInOut } from '../login/services/userActions';
 import { changeHeaderNameShowing } from '../sharedComponents//mainHeader/services/headerActions';
 
-import { getOnceAllGroups, getOnceMyRoundOnePicks, getStatusThunk } from './services/getDataThunk';
+import { getOnceAllGroups, getOnceMyRoundOnePicks, getStatusThunk, getTopScorersThunk, getTopScorerPickThunk } from './services/getDataThunk';
 import { spinnerOnOff } from '../spinner/services/spinnerActions';
 
 
@@ -21,7 +21,7 @@ class Home extends Component {
       if (currentUser) {
         this.props.logInOut(currentUser);
         this.props.changeHeaderNameShowing(currentUser.displayName)
-        Promise.all([this.props.getOnceAllGroups(), this.props.getOnceMyRoundOnePicks(currentUser.uid), this.props.getStatusThunk()]).then(() =>{
+        Promise.all([this.props.getOnceAllGroups(), this.props.getOnceMyRoundOnePicks(currentUser.uid), this.props.getStatusThunk(), this.props.getTopScorersThunk(), this.props.getTopScorerPickThunk(currentUser.uid)]).then(() =>{
           this.props.spinnerOnOff(false);
         })
       } else {
@@ -37,17 +37,21 @@ class Home extends Component {
       <section className="home-container">
         {/* <HomeHeader currentUser={this.props.user.currentUser}/> */}
         <SubHeader/>
-        <AppData roundOnePicks={this.props.roundOnePicks}/>
+        <AppData
+          roundOnePicks={this.props.roundOnePicks}
+          topScorerPick={this.props.topScorerPick}
+        />
         {/* <Route path="/home/sideMenu" component={SideMenu}/> */}
       </section>
     );
   }
 }
 
-function mapStateToProps ({ user, roundOnePicks }) {
+function mapStateToProps ({ user, roundOnePicks, topScorerPick }) {
     return {
       user,
-      roundOnePicks
+      roundOnePicks,
+      topScorerPick
     };
 }
 
@@ -58,7 +62,9 @@ function mapDispatchToProps (dispatch) {
     getOnceAllGroups: () => dispatch(getOnceAllGroups()),
     getOnceMyRoundOnePicks: (data) => dispatch(getOnceMyRoundOnePicks(data)),
     getStatusThunk: () => dispatch(getStatusThunk()),
-    spinnerOnOff: (data) => dispatch(spinnerOnOff(data))
+    spinnerOnOff: (data) => dispatch(spinnerOnOff(data)),
+    getTopScorersThunk: () => dispatch(getTopScorersThunk()),
+    getTopScorerPickThunk: (data) => dispatch(getTopScorerPickThunk(data))
   };
 }
 

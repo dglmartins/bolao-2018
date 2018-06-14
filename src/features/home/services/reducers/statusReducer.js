@@ -1,4 +1,4 @@
-import { GET_STATUS } from '../actions/statusActions';
+import { GET_STATUS } from '../actions/getActions';
 
 const initialState = {
   roundOnePicks: false

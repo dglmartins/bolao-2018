@@ -1,5 +1,6 @@
 export const GET_ROUND_ONE_PICKS = 'GET_ROUND_ONE_PICKS';
 export const CHANGE_PICK = 'CHANGE_PICK';
+export const GET_TOP_SCORER_PICK = 'GET_TOP_SCORER_PICK';
 
 export function getRoundOnePicks(roundOnePicks) {
   return {
@@ -14,5 +15,12 @@ export function changePick({group, whichPick, pick}) {
     group,
     whichPick,
     pick
+  }
+}
+
+export function getTopScorerPick(scorer) {
+  return {
+    type: GET_TOP_SCORER_PICK,
+    scorer
   }
 }
