@@ -6,6 +6,7 @@ import { topScorers } from '../home/services/reducers/topScorersReducer';
 import { teams } from '../home/services/reducers/teamsReducer';
 import { roundOnePicks } from '../home/services/reducers/roundOnePicksReducer';
 import { topScorerPick } from '../home/services/reducers/topScorersReducer';
+import { users } from '../home/services/reducers/usersReducer';
 import { teamPick } from '../home/services/reducers/teamsReducer';
 import { spinner } from '../spinner/services/spinnerReducer';
 
@@ -22,7 +23,8 @@ export default combineReducers({
   topScorers,
   topScorerPick,
   teams,
-  teamPick
+  teamPick,
+  users
   // filterIndexBy,
   // products,
   // companies,

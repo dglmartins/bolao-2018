@@ -9,7 +9,7 @@ import { firebaseAuth } from '../services/utils/api';
 import { logInOut } from '../login/services/userActions';
 import { changeHeaderNameShowing } from '../sharedComponents//mainHeader/services/headerActions';
 
-import { getOnceAllGroups, getOnceMyRoundOnePicks, getStatusThunk, getTopScorersThunk, getTopScorerPickThunk, getTeamsThunk, getTeamPickThunk } from './services/getDataThunk';
+import { getOnceAllGroups, getOnceMyRoundOnePicks, getStatusThunk, getTopScorersThunk, getTopScorerPickThunk, getTeamsThunk, getTeamPickThunk, getOnceUsers } from './services/getDataThunk';
 import { spinnerOnOff } from '../spinner/services/spinnerActions';
 
 
@@ -21,7 +21,7 @@ class Home extends Component {
       if (currentUser) {
         this.props.logInOut(currentUser);
         this.props.changeHeaderNameShowing(currentUser.displayName)
-        Promise.all([this.props.getOnceAllGroups(), this.props.getOnceMyRoundOnePicks(currentUser.uid), this.props.getStatusThunk(), this.props.getTopScorersThunk(), this.props.getTopScorerPickThunk(currentUser.uid), this.props.getTeamsThunk(), this.props.getTeamPickThunk(currentUser.uid)]).then(() =>{
+        Promise.all([this.props.getOnceAllGroups(), this.props.getOnceMyRoundOnePicks(currentUser.uid), this.props.getStatusThunk(), this.props.getTopScorersThunk(), this.props.getTopScorerPickThunk(currentUser.uid), this.props.getTeamsThunk(), this.props.getTeamPickThunk(currentUser.uid), this.props.getOnceUsers()]).then(() =>{
           this.props.spinnerOnOff(false);
         })
       } else {
@@ -68,7 +68,8 @@ function mapDispatchToProps (dispatch) {
     getTopScorersThunk: () => dispatch(getTopScorersThunk()),
     getTopScorerPickThunk: (data) => dispatch(getTopScorerPickThunk(data)),
     getTeamsThunk: () => dispatch(getTeamsThunk()),
-    getTeamPickThunk: (data) => dispatch(getTeamPickThunk(data))
+    getTeamPickThunk: (data) => dispatch(getTeamPickThunk(data)),
+    getOnceUsers: () => dispatch(getOnceUsers())
   };
 }
 

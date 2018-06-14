@@ -3,6 +3,8 @@ import { getRoundOnePicks, getTopScorerPick, getTeamPick} from './actions/picksA
 import { getStatus } from './actions/getActions';
 import { getTopScorers } from './actions/getActions';
 import { getTeams } from './actions/getActions';
+import { getUsers } from './actions/getActions';
+
 
 
 export function getOnceAllGroups () {
@@ -13,6 +15,16 @@ export function getOnceAllGroups () {
     });
   };
 };
+
+export function getOnceUsers () {
+  return function(dispatch, getState, api) {
+    const ref = api.firebaseDb.ref().child("users").orderByKey();
+    return ref.once('value').then((snapshot) => {
+      dispatch(getUsers(snapshot.val()));
+    });
+  };
+};
+
 
 export function getStatusThunk () {
   return function(dispatch, getState, api) {
