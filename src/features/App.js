@@ -1,20 +1,21 @@
 import React from 'react';
-// import { connect } from 'react-redux';
-import { Route, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { Route, Switch, withRouter } from 'react-router-dom';
+
 import './App.css';
 import './normalize.css'
 
 import Home from './home';
 import Login from './login';
 import MainHeader from './sharedComponents/mainHeader';
-// import Spinner from './spinner';
 import './App.css';
+import Spinner from './spinner';
 
 
 const App = (props) => (
   <div className="overall-container">
     <MainHeader/>
-      <Switch>
+    <Switch>
       <Route path='/home' component={Home}/>
 
       <Route path='/login' component={Login}/>
@@ -22,10 +23,17 @@ const App = (props) => (
     </Switch>
 
     {/* Spinner always last - out of any switch */}
-    {/* {props.spinner.spinnerOn &&
+    {props.spinner.spinnerOn &&
       <Spinner />
-    } */}
+    }
   </div>
-)
+);
 
-export default App;
+function mapStateToProps ({ spinner }) {
+  return {
+    spinner
+  };
+}
+
+
+export default withRouter(connect(mapStateToProps)(App));

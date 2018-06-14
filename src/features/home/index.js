@@ -1,28 +1,32 @@
 import React, { Component } from 'react';
 import './home.css';
-import { Route } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import SubHeader from './subHeader';
 import AppData from './appData';
 // import SideMenu from './sideMenu';
 import { firebaseAuth } from '../services/utils/api';
-// import { spinnerOnOff } from '../spinner/services/spinnerActions';
 import { logInOut } from '../login/services/userActions';
 import { changeHeaderNameShowing } from '../sharedComponents//mainHeader/services/headerActions';
 
 import { getOnceAllGroups, getOnceMyRoundOnePicks, getStatusThunk } from './services/getDataThunk';
+import { spinnerOnOff } from '../spinner/services/spinnerActions';
 
 
 class Home extends Component {
 
   componentWillMount() {
+    this.props.spinnerOnOff(true)
     firebaseAuth.onAuthStateChanged((currentUser) => {
       if (currentUser) {
         this.props.logInOut(currentUser);
         this.props.changeHeaderNameShowing(currentUser.displayName)
-        Promise.all([this.props.getOnceAllGroups(), this.props.getOnceMyRoundOnePicks(currentUser.uid), this.props.getStatusThunk()])
+        Promise.all([this.props.getOnceAllGroups(), this.props.getOnceMyRoundOnePicks(currentUser.uid), this.props.getStatusThunk()]).then(() =>{
+          this.props.spinnerOnOff(false);
+        })
       } else {
         console.log("no user")
+        this.props.spinnerOnOff(false);
         this.props.history.push('/login');
       }
     });
@@ -53,8 +57,9 @@ function mapDispatchToProps (dispatch) {
     changeHeaderNameShowing: (data) => dispatch(changeHeaderNameShowing(data)),
     getOnceAllGroups: () => dispatch(getOnceAllGroups()),
     getOnceMyRoundOnePicks: (data) => dispatch(getOnceMyRoundOnePicks(data)),
-    getStatusThunk: () => dispatch(getStatusThunk())
+    getStatusThunk: () => dispatch(getStatusThunk()),
+    spinnerOnOff: (data) => dispatch(spinnerOnOff(data))
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Home));

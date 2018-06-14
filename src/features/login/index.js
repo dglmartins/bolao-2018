@@ -6,7 +6,7 @@ import SignIn from './signIn';
 import ResetPass from './resetPass';
 import MainHeader from '../sharedComponents/mainHeader';
 import { firebaseAuth } from '../services/utils/api';
-// import { spinnerOnOff } from '../spinner/services/spinnerActions';
+import { spinnerOnOff } from '../spinner/services/spinnerActions';
 import { signInThunk, resetPassThunk, createUserThunk } from './services/logInThunk';
 
 const initialState = {
@@ -65,13 +65,19 @@ class Login extends Component {
 
   signIn = (e) => {
     e.preventDefault();
-    this.props.signInThunk({email: this.state.signInInput, password: this.state.passwordInput}).then(() => this.resetInputs());
+    this.props.spinnerOnOff(true);
+    this.props.signInThunk({email: this.state.signInInput, password: this.state.passwordInput}).then(() => {
+      this.resetInputs()
+      this.props.spinnerOnOff(false)
+    } );
   }
 
   createUser = (e) => {
     e.preventDefault();
+    this.props.spinnerOnOff(true);
     this.props.createUserThunk({email: this.state.signInInput, password: this.state.passwordInput, displayName: this.state.nameInput}).then((results) => {
       console.log(results)
+      this.props.spinnerOnOff(false)
       this.resetInputs()
     });
 
@@ -155,7 +161,8 @@ function mapDispatchToProps (dispatch) {
   return {
     signInThunk: (data) => dispatch(signInThunk(data)),
     resetPassThunk: (data) => dispatch(resetPassThunk(data)),
-    createUserThunk: (data) => dispatch(createUserThunk(data))
+    createUserThunk: (data) => dispatch(createUserThunk(data)),
+    spinnerOnOff: (data) => dispatch(spinnerOnOff(data))
   }
 }
 

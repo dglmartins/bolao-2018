@@ -16,11 +16,13 @@ class RoundOnePicks extends Component {
         </div>
         {this.props.groupsNames.map((group) => (
           <div key={group}>
-            <RoundOnePicker
-              roundOnePicks={this.props.roundOnePicks[group]}
-              groupName={group}
-              group={this.props.groups[group]}
-            />
+            {this.props.status.roundOnePicks && (
+              <RoundOnePicker
+                roundOnePicks={this.props.roundOnePicks[group]}
+                groupName={group}
+                group={this.props.groups[group]}
+              />
+            )}      
             <GroupTable
               groupName={group} group={this.props.groups[group]}
               showScore={false}

@@ -15,7 +15,7 @@ export function getOnceAllGroups () {
 export function getStatusThunk () {
   return function(dispatch, getState, api) {
     const ref = api.firebaseDb.ref().child("status").orderByKey();
-    return ref.once('value').then((snapshot) => {
+    return ref.on('value', (snapshot) => {
       dispatch(getStatus(snapshot.val()));
     });
   };
