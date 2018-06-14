@@ -1,9 +1,9 @@
 export const rules = {
-  "Group Phase": {
+  "Group Stage": {
     eachQualified: {points: 5, maxPoints: 80, description: "Each team qualified - per pick"},
     positionQualified: {points: 5, maxPoints: 80, description: "Correct order qualified - per pick"},
     bestCampaign: {points: 40, maxPoints: 40, description: "Bonus best campaign"},
-    maxPoints: {points: null, maxPoints: 200, description: "Max points group phase"}
+    maxPoints: {points: null, maxPoints: 200, description: "Max points group stage"}
   },
   "Round of 16": {
     eachWinner: {points: 2, maxPoints: 16, description: "Correct winner pick - per game"},
