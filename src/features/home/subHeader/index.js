@@ -9,10 +9,21 @@ const SubHeader = (props) => {
   const navitageToRoundOnePicks = () => {
     props.history.push('/home/roundOnePicks');
   }
+
+  const navitageToBolaoStandings = () => {
+    props.history.push('/home/bolaoStandings');
+  }
   return (
    <div className="sub-header">
-     <div className="nav-link" onClick={navitageToRoundOnePicks}>My Picks</div>
-     <div className="nav-link" onClick={navitageToStandings}>Group standings</div>
+     <div className="nav-link" onClick={navitageToRoundOnePicks}>
+       My Picks
+     </div>
+     <div className="nav-link" onClick={navitageToStandings}>
+       Group standings
+     </div>
+     <div className="nav-link" onClick={navitageToBolaoStandings}>
+       Bolao Standings
+     </div>
    </div>
   )
 };

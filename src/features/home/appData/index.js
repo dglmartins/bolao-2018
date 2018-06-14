@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route, withRouter, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import GroupView from './groupView';
+import UsersView from './usersView';
 import RoundOnePicks from './roundOnePicks';
 class AppData extends Component {
   componentWillMount() {
@@ -30,6 +31,7 @@ class AppData extends Component {
                 teamPick={this.props.teamPick}
               />
           )}/>
+          <Route path='/home/bolaoStandings' component={UsersView}/>
         </Switch>
       </section>
     );

@@ -19,7 +19,7 @@ export function getOnceAllGroups () {
 export function getOnceUsers () {
   return function(dispatch, getState, api) {
     const ref = api.firebaseDb.ref().child("users").orderByKey();
-    return ref.once('value').then((snapshot) => {
+    return ref.on('value', (snapshot) => {
       dispatch(getUsers(snapshot.val()));
     });
   };
