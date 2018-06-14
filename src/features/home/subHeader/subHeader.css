@@ -19,3 +19,11 @@
   background-color: #039be5;
   cursor: pointer
 }
+
+
+@media (max-width: 500px) {
+  .nav-link {
+    font-size: 0.7em;
+  }
+
+}

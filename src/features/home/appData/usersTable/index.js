@@ -10,8 +10,8 @@ const UsersTable = (props) => {
     console.log(e.target)
   }
   return (
-    <table className="group-table">
-      <caption>Bolao Standings</caption>
+    <table className="user-table">
+      <caption className="caption">Bolao Standings</caption>
       <tbody>
         <tr className="row">
           <th className="table-head">Name</th>

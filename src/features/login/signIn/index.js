@@ -47,15 +47,15 @@ const SignIn = (props) => (
       </div>
       {props.creatingUser ? (
         <div>
-          <ViewNavLink navTitle="Voltar para login" handleClick={props.navigateToLogIn}/>
-          <LargeButton buttonText="Cadastre-se" color="blue-class"/>
+          <ViewNavLink navTitle="Back to login" handleClick={props.navigateToLogIn}/>
+          <LargeButton buttonText="Create Account" color="blue-class"/>
         </div>
 
       ) : (
         <div>
-          <ViewNavLink navTitle="Esqueceu sua senha?" handleClick={props.navigateToResetPassword}/>
-          <LargeButton buttonText="Entrar" color="red-class"/>
-          <ViewNavLink navTitle="Cadastre-se" handleClick={props.navigateToCreateUser}/>
+          <ViewNavLink navTitle="forgot your password?" handleClick={props.navigateToResetPassword}/>
+          <LargeButton buttonText="Sign In" color="red-class"/>
+          <ViewNavLink navTitle="Create Account" handleClick={props.navigateToCreateUser}/>
         </div>
       )}
     </form>

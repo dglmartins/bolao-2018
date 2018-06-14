@@ -16,8 +16,8 @@ const initialState = {
   passResetInput: '',
   signInInputPlaceholder: 'email',
   passResetInputPlaceholder: 'email',
-  passwordInputPlaceholder: 'senha',
-  nameInputPlaceholder: 'nome',
+  passwordInputPlaceholder: 'password',
+  nameInputPlaceholder: 'name',
   creatingUser: false
 };
 

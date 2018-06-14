@@ -1,13 +1,14 @@
 .group-table {
-  width: 80%;
-  margin-left: 10%;
+  width: 90%;
+  margin-left: 5%;
   margin-top: 2em;
 }
 
-caption {
+.caption {
   background-color: #d50000;
   line-height: 4em;
   color: white;
+  font-size: 1em
 }
 
 .row {
@@ -20,4 +21,14 @@ caption {
 
 .table-head {
   height: 3em;
+}
+
+
+@media (max-width: 500px) {
+  .caption {
+    font-size: 0.8em;
+  }
+  .table-head {
+    font-size: 0.8em;
+  }
 }

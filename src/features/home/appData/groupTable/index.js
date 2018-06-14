@@ -11,7 +11,7 @@ const GroupTable = (props) => {
   }
   return (
     <table className="group-table">
-      <caption>{`Group ${props.groupName}`}</caption>
+      <caption className="caption">{`Group ${props.groupName}`}</caption>
       <tbody>
         <tr className="row">
           <th className="table-head" colSpan="2">Team</th>

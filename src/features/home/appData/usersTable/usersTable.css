@@ -1,10 +1,10 @@
-.group-table {
-  width: 80%;
-  margin-left: 10%;
+.user-table {
+  width: 90%;
+  margin-left: 5%;
   margin-top: 2em;
 }
 
-caption {
+.caption {
   background-color: #d50000;
   line-height: 4em;
   color: white;
@@ -20,4 +20,13 @@ caption {
 
 .table-head {
   height: 3em;
+}
+
+@media (max-width: 500px) {
+  .caption {
+    font-size: 0.8em;
+  }
+  .table-head {
+    font-size: 0.8em;
+  }
 }
