@@ -1,30 +1,41 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import './roundOnePicker.css';
-import { changePick } from '../../services/actions/picksActions';
+import { createPick, updatePick } from '../../services/setDataThunk';
 
 class RoundOnePicker extends Component {
 
   changePickOne = (e) => {
-    const firstPlacePick = e.target.value
+    const firstPlacePick = e.target.value;
+    const group = this.props.groupName;
+    const whichPick = "firstPlacePick";
+    const pick = firstPlacePick;
+    const { uid } = this.props.user.currentUser;
     if (firstPlacePick == this.props.roundOnePicks.secondPlacePick) {
       alert(`You've already picked ${firstPlacePick}`);
+    } else if (this.props.roundOnePicks.firstPlacePick == "disabled") {
+      this.props.createPick({uid, group, whichPick, pick})
     } else {
-      const group = this.props.groupName;
-      const whichPick = "firstPlacePick";
-      const pick = firstPlacePick
-      this.props.changePick({group, whichPick, pick});
+      this.props.updatePick({uid, group, whichPick, pick})
+
+      // this.props.createPick({uid, group, whichPick, pick});
     }
   }
-  //
-  // changePickTwo = (e) => {
-  //   const secondPlacePick = e.target.value
-  //   if (secondPlacePick == this.state.firstPlacePick) {
-  //     alert(`You've already picked ${secondPlacePick}`);
-  //   } else {
-  //     this.setState({secondPlacePick});
-  //   }
-  // }
+
+  changePickTwo = (e) => {
+    const secondPlacePick = e.target.value;
+    const group = this.props.groupName;
+    const whichPick = "secondPlacePick";
+    const pick = secondPlacePick;
+    const { uid } = this.props.user.currentUser;
+    if (secondPlacePick == this.props.roundOnePicks.firstPlacePick) {
+      alert(`You've already picked ${secondPlacePick}`);
+    } else if (this.props.roundOnePicks.secondPlacePick == "disabled") {
+      this.props.createPick({uid, group, whichPick, pick})
+    } else {
+      this.props.updatePick({uid, group, whichPick, pick})
+    }
+  }
 
   render() {
     console.log(this.props.roundOnePicks)
@@ -60,10 +71,17 @@ class RoundOnePicker extends Component {
   }
 }
 
-function mapDispatchToProps(dispatch) {
+function mapStateToProps({ user }) {
   return {
-    changePick: (data) => dispatch(changePick(data))
+    user
   }
 }
 
-export default connect(null, mapDispatchToProps)(RoundOnePicker);
+function mapDispatchToProps(dispatch) {
+  return {
+    createPick: (data) => dispatch(createPick(data)),
+    updatePick: (data) => dispatch(updatePick(data))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(RoundOnePicker);

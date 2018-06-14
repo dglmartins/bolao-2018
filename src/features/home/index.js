@@ -2,15 +2,13 @@ import React, { Component } from 'react';
 import './home.css';
 import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
-import HomeHeader from './homeHeader';
-
 import SubHeader from './subHeader';
 import AppData from './appData';
 // import SideMenu from './sideMenu';
 import { firebaseAuth } from '../services/utils/api';
 // import { spinnerOnOff } from '../spinner/services/spinnerActions';
 import { logInOut } from '../login/services/userActions';
-import { changeHeaderNameShowing } from './homeHeader/services/headerActions';
+import { changeHeaderNameShowing } from '../sharedComponents//mainHeader/services/headerActions';
 
 import { getOnceAllGroups, getOnceMyRoundOnePicks} from './services/getDataThunk';
 

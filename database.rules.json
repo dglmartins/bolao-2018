@@ -5,6 +5,14 @@
       "$uid": {
         ".write": "$uid === auth.uid"
       }
+    },
+    "roundOnePicks": {
+      "$roundOnePick": {
+        ".write": "root.child('roundOnePicks/'+$roundOnePick+'/user'+auth.uid).exists() || newData.child('user').exists()",
+        "user": {
+             ".validate": "newData.val() === auth.uid"
+          },
+      }
     }
   }
 }

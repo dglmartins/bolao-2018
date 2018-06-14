@@ -16,7 +16,9 @@ export function getOnceMyRoundOnePicks (uid) {
     const ref = api.firebaseDb.ref().child(`users/${uid}/roundOnePicks`).orderByKey();
     return ref.once('value').then((snapshot) => {
       console.log(snapshot.val())
-      dispatch(getRoundOnePicks(snapshot.val()));
+      if (snapshot.val()) {
+        dispatch(getRoundOnePicks(snapshot.val()));
+      }
     });
   };
 };

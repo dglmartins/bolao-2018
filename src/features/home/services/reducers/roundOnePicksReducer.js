@@ -1,4 +1,6 @@
 import { GET_ROUND_ONE_PICKS, CHANGE_PICK } from '../actions/picksActions';
+const R = require('ramda');
+
 
 const initialState = {
   "A": {
@@ -39,7 +41,7 @@ export function roundOnePicks (state = initialState, action) {
   const { roundOnePicks, whichPick, pick, group } = action
   switch (action.type) {
     case GET_ROUND_ONE_PICKS:
-      return Object.assign({}, state, roundOnePicks);
+      return R.mergeDeepRight(state, roundOnePicks);
     case CHANGE_PICK:
       console.log(group, whichPick, pick)
       return {
