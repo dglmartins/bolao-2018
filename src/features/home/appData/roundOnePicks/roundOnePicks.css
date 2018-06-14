@@ -11,3 +11,9 @@
   margin-bottom: 0.5em;
   /* background-color: #dcedc8; */
 }
+
+@media (max-width: 500px) {
+  .rules-status {
+    font-size: 0.8em;
+  }
+}
