@@ -23,6 +23,8 @@ class Home extends Component {
         this.props.changeHeaderNameShowing(currentUser.displayName)
         Promise.all([this.props.getOnceAllGroups(), this.props.getOnceMyRoundOnePicks(currentUser.uid), this.props.getStatusThunk(), this.props.getTopScorersThunk(), this.props.getTopScorerPickThunk(currentUser.uid), this.props.getTeamsThunk(), this.props.getTeamPickThunk(currentUser.uid), this.props.getOnceUsers()]).then(() =>{
           this.props.spinnerOnOff(false);
+          this.props.history.push('/home/bolaoStandings');
+
         })
       } else {
         console.log("no user")
