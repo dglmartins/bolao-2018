@@ -17,6 +17,14 @@ class RoundOnePicks extends Component {
             "closed for picks"
           }
         </div>
+        <div className="rules-status">
+          Pick first and second place for each group,
+
+        </div>
+        <div className="rules-status">
+          a top scorer, and the best round 1 campaign
+
+        </div>
         {this.props.groupsNames.map((group) => (
           <div key={group}>
             {this.props.status.roundOnePicks && (
