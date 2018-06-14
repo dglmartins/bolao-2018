@@ -96,7 +96,7 @@ class Login extends Component {
 
   render() {
     return (
-      <section>
+      <section className="login-data-container">
 
         <section className="logo-container">
         </section>
