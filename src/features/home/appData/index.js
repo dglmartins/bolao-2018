@@ -3,7 +3,9 @@ import { Route, withRouter, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import GroupView from './groupView';
 import UsersView from './usersView';
+import RulesTable from './rules/rulesTable';
 import RoundOnePicks from './roundOnePicks';
+import './appData.css'
 class AppData extends Component {
   componentWillMount() {
     // this.props.spinnerOnOff(true);
@@ -21,7 +23,7 @@ class AppData extends Component {
   render() {
     // const { gotAll } = this.props
     return (
-      <section>
+      <section className="app-data-container">
         <Switch>
           <Route path='/home/groupStandings' component={GroupView}/>
           <Route path='/home/roundOnePicks' render={() => (
@@ -32,6 +34,7 @@ class AppData extends Component {
               />
           )}/>
           <Route path='/home/bolaoStandings' component={UsersView}/>
+          <Route path='/home/rules' component={RulesTable}/>
         </Switch>
       </section>
     );
@@ -39,4 +42,4 @@ class AppData extends Component {
 }
 
 
-export default (AppData);
+export default withRouter(AppData);

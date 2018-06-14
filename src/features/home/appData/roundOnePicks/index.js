@@ -22,7 +22,7 @@ class RoundOnePicks extends Component {
 
         </div>
         <div className="rules-status">
-          a top scorer, and the best round 1 campaign
+          a top scorer, and the best group phase campaign
 
         </div>
         {this.props.groupsNames.map((group) => (

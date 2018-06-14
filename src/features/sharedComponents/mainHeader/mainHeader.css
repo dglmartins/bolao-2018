@@ -1,6 +1,5 @@
 /*main header*/
 .main-header {
-	overflow: auto;
 	background-color: #d50000;
   padding: 0;
   margin: 0;
@@ -36,12 +35,12 @@
 
 
 /*for responsive design in narrower screens*/
-@media (max-width: 450px) {
+/* @media (max-width: 450px) {
   .current-user-container {
     display: none;
   }
 
-}
+} */
 
 @media (max-width: 260px) {
   .header-logo-container {

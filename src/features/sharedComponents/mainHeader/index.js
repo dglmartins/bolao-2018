@@ -37,7 +37,6 @@ const HomeHeader = (props) => {
             </HeaderUserContainer>
           </div>
         )}
-        <p className="title">Bolao da Copa</p>
         <img src={ball}></img>
         {/* {!props.onSideMenu && (
           <div className="header-logo-container">

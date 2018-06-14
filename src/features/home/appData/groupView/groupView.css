@@ -1,0 +1,12 @@
+.standings-title {
+  width: 99.5%;
+  margin-left: 0.25%;
+  margin-top: 0;
+  background-color: #d50000;
+  height: 2em;
+  line-height: 2em;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  margin-bottom: 2em;
+}

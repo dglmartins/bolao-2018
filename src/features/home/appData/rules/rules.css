@@ -1,0 +1,61 @@
+.rules-container {
+  margin-bottom: 5em;
+}
+.rules-table {
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 2em;
+  overflow: scroll;
+}
+
+.caption-rules {
+  background-color: #d50000;
+  line-height: 2em;
+  color: white;
+  font-size: 1em
+}
+
+.row {
+  width: 100%;
+  line-height: 1em;
+  height: 1em;
+  background-color: #e3f2fd;
+  color: black;
+  font-weight: bold;
+}
+
+.left-text {
+  text-align: left;
+}
+
+.table-head {
+  height: 3em;
+}
+
+
+@media (max-width: 500px) {
+  .caption {
+    font-size: 0.8em;
+  }
+  .table-head {
+    font-size: 0.8em;
+  }
+}
+
+.rules-title {
+  width: 99.5%;
+  margin-left: 0.25%;
+  margin-top: 0;
+  background-color: #d50000;
+  height: 2em;
+  line-height: 2em;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+}
+
+@media (max-width: 500px) {
+  .rules-table {
+    font-size: 0.8em;
+  }
+}
