@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 
 const SubHeader = (props) => {
   const navigateToStandings = () => {
-    props.history.push('/home/groupStandings');
+    props.history.push(`/home/groupStandings/${props.uid}`);
   }
   const navigateToRoundOnePicks = () => {
     props.history.push('/home/roundOnePicks');
@@ -22,10 +22,10 @@ const SubHeader = (props) => {
      <tbody>
        <tr>
          <td className="nav-link" onClick={navigateToRoundOnePicks}>
-           My Picks
+           Make Picks
          </td>
          <td className="nav-link" onClick={navigateToStandings}>
-          Group standings
+          My Current Picks
          </td>
          <td className="nav-link" onClick={navigateToBolaoStandings}>
            Bolao standings

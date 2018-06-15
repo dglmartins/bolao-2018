@@ -3,6 +3,7 @@ import TeamScorerRow from './components/TeamScorerRow';
 import './teamScorerPickTable.css'
 
 const TeamScorerPickTable = (props) => {
+  console.log(props)
 
   const handleSelect = (e) => {
     console.log(e.target)
@@ -17,8 +18,8 @@ const TeamScorerPickTable = (props) => {
         </tr>
 
         <TeamScorerRow
-          topScorer={props.extraPicks.topScorer}
-          team={props.extraPicks.team}
+          topScorer={props.topScorerPick}
+          team={props.teamPick}
           handleSelect={handleSelect}
         />
 

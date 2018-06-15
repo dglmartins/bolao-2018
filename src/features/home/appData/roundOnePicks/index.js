@@ -15,7 +15,7 @@ class RoundOnePicks extends Component {
         <div className="pick-status">
            {this.props.status.roundOnePicks ?
             "open for picks" :
-            "Group stage closed - See group standings for group picks"
+            "Group stage closed - you can view everyone's picks"
           }
         </div>
         {this.props.status.roundOnePicks && (
@@ -69,12 +69,6 @@ class RoundOnePicks extends Component {
             key={group}
           />
         ))} */}
-
-        {!this.props.status.roundOnePicks && (
-          <TeamScorerPickTable
-            extraPicks={this.props.extraPicks}
-          />
-        )}
 
       </div>
     )

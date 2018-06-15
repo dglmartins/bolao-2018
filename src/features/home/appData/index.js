@@ -25,7 +25,13 @@ class AppData extends Component {
     return (
       <section className="app-data-container">
         <Switch>
-          <Route path='/home/groupStandings' component={GroupView}/>
+          <Route
+            exact path={`/home/groupStandings/:user_id`}
+            render={({ match }) => (
+              <GroupView uid={match.params.user_id}/>
+            )}
+          />
+          {/* <Route path='/home/groupStandings' component={GroupView}/> */}
           <Route path='/home/roundOnePicks' render={() => (
               <RoundOnePicks
                 roundOnePicks={this.props.roundOnePicks}

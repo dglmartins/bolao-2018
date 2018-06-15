@@ -32,7 +32,7 @@ class Home extends Component {
           this.props.getWatchGroupsStats()
         ]).then(() =>{
           this.props.spinnerOnOff(false);
-          this.props.history.push('/home/groupStandings')
+          this.props.history.push(`/home/groupStandings/${currentUser.uid}`)
 
         })
       } else {
@@ -45,16 +45,22 @@ class Home extends Component {
 
   render () {
     return (
-      <section className="home-container">
-        {/* <HomeHeader currentUser={this.props.user.currentUser}/> */}
-        <SubHeader/>
-        <AppData
-          roundOnePicks={this.props.roundOnePicks}
-          topScorerPick={this.props.topScorerPick}
-          teamPick={this.props.teamPick}
-        />
-        {/* <Route path="/home/sideMenu" component={SideMenu}/> */}
-      </section>
+      <div>
+        {this.props.user.currentUser && (
+          <section className="home-container">
+            {/* <HomeHeader currentUser={this.props.user.currentUser}/> */}
+            <SubHeader uid={this.props.user.currentUser.uid}/>
+            <AppData
+              roundOnePicks={this.props.roundOnePicks}
+              topScorerPick={this.props.topScorerPick}
+              teamPick={this.props.teamPick}
+            />
+            {/* <Route path="/home/sideMenu" component={SideMenu}/> */}
+          </section>
+        )}
+
+      </div>
+
     );
   }
 }

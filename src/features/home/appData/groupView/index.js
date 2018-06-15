@@ -2,11 +2,18 @@ import React from 'react';
 import { connect } from 'react-redux';
 import GroupTable from '../groupTable';
 import './groupView.css';
+import { withRouter } from 'react-router-dom';
+import TeamScorerPickTable from '../teamScorerPickTable';
 
 const GroupView = (props) => {
+  const {users, user, uid} = props;
+  console.log(props)
   return (
     <div>
-      <div className="standings-title">Group Standings</div>
+
+      {users[uid] && (
+        <div className="standings-title">{`Picks - ${users[uid].displayName}`}</div>
+      )}
 
       {props.groupsNames.map((group) => (
         <div key={group}>
@@ -18,27 +25,34 @@ const GroupView = (props) => {
               2nd place pick
             </div>
           </div>
-
-          <GroupTable
-            groupName={group}
-            group={props.groupsStats[group]}
-            showScore={true}
-            myPicks={props.roundOnePicks[group]}
-          />
+          {users[uid] && (
+            <GroupTable
+              groupName={group}
+              group={props.groupsStats[group]}
+              showScore={true}
+              myPicks={users[uid].roundOnePicks[group]}
+            />
+          )}
         </div>
 
       ))}
+      {users[uid] && (
+        <TeamScorerPickTable topScorerPick={users[uid].topScorerPick}
+        teamPick={users[uid].teamPick}/>
+      )}
     </div>
   );
 };
 
-function mapStateToProps({ groupsStats, roundOnePicks }) {
+function mapStateToProps({ groupsStats, user, users }) {
+
   return {
     groupsNames: Object.keys(groupsStats).map((group) => (
       group
     )),
     groupsStats,
-    roundOnePicks
+    users,
+    user
   }
 }
 

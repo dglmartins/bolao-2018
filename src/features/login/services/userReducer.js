@@ -1,6 +1,6 @@
 import { LOG_IN_OUT } from './userActions';
 
-export function user (state = {currentUser: null}, action) {
+export function user (state = {currentUser: undefined}, action) {
   const { currentUser } = action
   switch (action.type) {
     case LOG_IN_OUT:
