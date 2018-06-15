@@ -5,6 +5,7 @@ import './teamRow.css'
 
 const TeamRow = (props) => {
   const style = getCountryStyle(props.teamName)
+
   return (
     <tr onClick={props.handleSelect}>
       <td className="flag-td" style={style}>

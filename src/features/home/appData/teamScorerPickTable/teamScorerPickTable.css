@@ -1,0 +1,32 @@
+.team-scorer-table {
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 0;
+}
+
+.team-scorer-caption {
+  background-color: #d50000;
+  line-height: 4em;
+  color: white;
+}
+
+.team-scorer-row {
+  width: 100%;
+  line-height: 3em;
+  height: 3em;
+  background-color: #e3f2fd;
+  color: black;
+}
+
+.team-scorer-table-head {
+  height: 3em;
+}
+
+@media (max-width: 500px) {
+  .team-scorer-caption {
+    font-size: 0.8em;
+  }
+  .team-scorer-table-head {
+    font-size: 0.8em;
+  }
+}

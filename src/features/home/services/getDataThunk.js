@@ -10,7 +10,7 @@ import { getUsers } from './actions/getActions';
 export function getOnceAllGroups () {
   return function(dispatch, getState, api) {
     const ref = api.firebaseDb.ref().child("groups").orderByKey();
-    return ref.once('value').then((snapshot) => {
+    return ref.on('value', (snapshot) => {
       dispatch(getGroups(snapshot.val()));
     });
   };

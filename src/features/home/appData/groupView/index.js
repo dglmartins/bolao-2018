@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import GroupTable from '../groupTable';
-import './groupView.css'
+import './groupView.css';
+import R from 'ramda';
 
 const GroupView = (props) => {
   return (
@@ -9,7 +10,8 @@ const GroupView = (props) => {
       <div className="standings-title">Group Standings</div>
       {props.groupsNames.map((group) => (
         <GroupTable
-          groupName={group} group={props.groups[group]}
+          groupName={group}
+          group={props.groups[group]}
           key={group}
           showScore={true}
           showPicker={false}
