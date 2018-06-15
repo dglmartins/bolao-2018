@@ -28,7 +28,7 @@ const SubHeader = (props) => {
           My Current Picks
          </td>
          <td className="nav-link" onClick={navigateToBolaoStandings}>
-           Bolao standings
+           Bolao Points/Picks
          </td>
          <td className="nav-link" onClick={navigateToRules}>
            rules

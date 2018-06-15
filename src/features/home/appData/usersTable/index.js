@@ -8,7 +8,7 @@ const UsersTable = (props) => {
 
   return (
     <table className="user-table">
-      <caption className="caption">Click user to see their group picks</caption>
+      <caption className="caption">Click any user to see their closed picks</caption>
       <tbody>
         <tr className="row">
           <th className="table-head">Name</th>

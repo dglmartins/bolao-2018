@@ -15,7 +15,7 @@ class RoundOnePicks extends Component {
         <div className="pick-status">
            {this.props.status.roundOnePicks ?
             "open for picks" :
-            "Group stage closed - you can view everyone's picks"
+            "Group stage closed"
           }
         </div>
         {this.props.status.roundOnePicks && (
