@@ -9,7 +9,7 @@ import { firebaseAuth } from '../services/utils/api';
 import { logInOut } from '../login/services/userActions';
 import { changeHeaderNameShowing } from '../sharedComponents//mainHeader/services/headerActions';
 
-import { getOnceAllGroups, getOnceMyRoundOnePicks, getStatusThunk, getTopScorersThunk, getTopScorerPickThunk, getTeamsThunk, getTeamPickThunk, getOnceUsers, getWatchGroupsStats } from './services/getDataThunk';
+import { getOnceMyRoundOnePicks, getStatusThunk, getTopScorersThunk, getTopScorerPickThunk, getTeamsThunk, getTeamPickThunk, getOnceUsers, getWatchGroupsStats } from './services/getDataThunk';
 import { spinnerOnOff } from '../spinner/services/spinnerActions';
 
 
@@ -22,7 +22,6 @@ class Home extends Component {
         this.props.logInOut(currentUser);
         this.props.changeHeaderNameShowing(currentUser.displayName)
         Promise.all([
-          this.props.getOnceAllGroups(),
           this.props.getOnceMyRoundOnePicks(currentUser.uid),
           this.props.getStatusThunk(),
           this.props.getTopScorersThunk(),
@@ -72,7 +71,6 @@ function mapDispatchToProps (dispatch) {
   return {
     logInOut: (data) => dispatch(logInOut(data)),
     changeHeaderNameShowing: (data) => dispatch(changeHeaderNameShowing(data)),
-    getOnceAllGroups: () => dispatch(getOnceAllGroups()),
     getOnceMyRoundOnePicks: (data) => dispatch(getOnceMyRoundOnePicks(data)),
     getStatusThunk: () => dispatch(getStatusThunk()),
     spinnerOnOff: (data) => dispatch(spinnerOnOff(data)),

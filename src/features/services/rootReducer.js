@@ -1,6 +1,6 @@
 import { user } from '../login/services/userReducer';
 import { header } from '../sharedComponents/mainHeader/services/headerReducer';
-import { groups, groupsStats } from '../home/services/reducers/groupsReducer';
+import { groupsStats } from '../home/services/reducers/groupsReducer';
 import { status } from '../home/services/reducers/statusReducer';
 import { topScorers } from '../home/services/reducers/topScorersReducer';
 import { teams } from '../home/services/reducers/teamsReducer';
@@ -15,7 +15,6 @@ import  { combineReducers } from 'redux';
 
 export default combineReducers({
   header,
-  groups,
   user,
   roundOnePicks,
   status,

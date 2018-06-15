@@ -1,16 +1,6 @@
-import { getGroups } from './actions/groupsActions';
 import { getRoundOnePicks, getTopScorerPick, getTeamPick} from './actions/picksActions';
 import { getTeams, getUsers, getTopScorers, getStatus, getGroupsStats} from './actions/getActions';
 
-
-export function getOnceAllGroups () {
-  return function(dispatch, getState, api) {
-    const ref = api.firebaseDb.ref().child("groups").orderByKey();
-    return ref.on('value', (snapshot) => {
-      dispatch(getGroups(snapshot.val()));
-    });
-  };
-};
 
 export function getWatchGroupsStats () {
   return function(dispatch, getState, api) {
