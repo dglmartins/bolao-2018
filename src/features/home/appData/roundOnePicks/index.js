@@ -13,9 +13,9 @@ class RoundOnePicks extends Component {
     return (
       <div>
         <div className="pick-status">
-          Status: {this.props.status.roundOnePicks ?
+           {this.props.status.roundOnePicks ?
             "open for picks" :
-            "Group stage closed for picks"
+            "Group stage closed - See group standings for group picks"
           }
         </div>
         {this.props.status.roundOnePicks && (
@@ -60,7 +60,7 @@ class RoundOnePicks extends Component {
             </div>
           </div>
         )}
-        {!this.props.status.roundOnePicks && this.props.groupsNames.map((group) => (
+        {/* {!this.props.status.roundOnePicks && this.props.groupsNames.map((group) => (
           <GroupTable
             type="picks"
             groupName={group} group={this.props.groupsStats[group]}
@@ -68,7 +68,7 @@ class RoundOnePicks extends Component {
             picks={this.props.roundOnePicks[group]}
             key={group}
           />
-        ))}
+        ))} */}
 
         {!this.props.status.roundOnePicks && (
           <TeamScorerPickTable

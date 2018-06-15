@@ -17,9 +17,9 @@
 
 @media (max-width: 500px) {
   .rules-status {
-    font-size: 0.8em;
+    font-size: 0.6em;
   }
   .pick-status {
-    font-size: 0.8em;
+    font-size: 0.6em;
   }
 }

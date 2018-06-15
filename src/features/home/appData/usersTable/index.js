@@ -6,12 +6,9 @@ import './usersTable.css'
 
 const UsersTable = (props) => {
 
-  const handleSelect = (e) => {
-    console.log(e.target)
-  }
   return (
     <table className="user-table">
-      <caption className="caption">Bolao Standings</caption>
+      <caption className="caption">Click user to see their group picks</caption>
       <tbody>
         <tr className="row">
           <th className="table-head">Name</th>
@@ -19,9 +16,9 @@ const UsersTable = (props) => {
         </tr>
         {Object.keys(props.users).map((user) => (
           <UserRow
-            userName={props.users[user].displayName}
+            user={props.users[user]}
+            uid={user}
             userPoints={0}
-            handleSelect={handleSelect}
             key={user}
           />
         ))}

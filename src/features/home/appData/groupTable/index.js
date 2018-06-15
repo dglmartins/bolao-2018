@@ -78,6 +78,7 @@ const GroupTable = (props) => {
             handleSelect={handleSelect}
             key={teamStats.team}
             showScore={props.showScore}
+            myPicks={props.myPicks}
           />
         ))}
         {(props.type == "picks") && Object.keys(props.picks).map((pick) => (

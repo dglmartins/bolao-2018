@@ -6,27 +6,28 @@
 
 .team-scorer-caption {
   background-color: #d50000;
-  line-height: 4em;
+  line-height: 2em;
   color: white;
 }
 
 .team-scorer-row {
   width: 100%;
-  line-height: 3em;
-  height: 3em;
+  line-height: 1em;
+  height: 1em;
   background-color: #e3f2fd;
   color: black;
 }
 
 .team-scorer-table-head {
-  height: 3em;
+  height: 1em;
 }
 
 @media (max-width: 500px) {
   .team-scorer-caption {
-    font-size: 0.8em;
+    font-size: 0.7em;
   }
   .team-scorer-table-head {
-    font-size: 0.8em;
+    font-size: 0.6em;
+    height: 1em;
   }
 }

@@ -274,6 +274,7 @@ export function sortByFIFAOrder(group) {
     _.descend(_.prop('Pts')),
     _.descend(_.prop('GD')),
     _.descend(_.prop('GF')),
+    _.ascend(_.prop('team')),
   ]);
   const orderedArray = sortByOrder(groupArray)
   return orderedArray

@@ -7,24 +7,38 @@ const GroupView = (props) => {
   return (
     <div>
       <div className="standings-title">Group Standings</div>
+
       {props.groupsNames.map((group) => (
-        <GroupTable
-          groupName={group}
-          group={props.groupsStats[group]}
-          key={group}
-          showScore={true}
-        />
+        <div key={group}>
+          <div className="legend-container">
+            <div className="legend first">
+              1st place pick
+            </div>
+            <div className="legend second">
+              2nd place pick
+            </div>
+          </div>
+
+          <GroupTable
+            groupName={group}
+            group={props.groupsStats[group]}
+            showScore={true}
+            myPicks={props.roundOnePicks[group]}
+          />
+        </div>
+
       ))}
     </div>
   );
 };
 
-function mapStateToProps({ groupsStats }) {
+function mapStateToProps({ groupsStats, roundOnePicks }) {
   return {
     groupsNames: Object.keys(groupsStats).map((group) => (
       group
     )),
-    groupsStats
+    groupsStats,
+    roundOnePicks
   }
 }
 

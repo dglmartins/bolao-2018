@@ -13,7 +13,7 @@ const TeamScorerPickTable = (props) => {
       <tbody>
         <tr className="team-scorer-row">
           <th className="team-scorer-table-head">Top Scorer</th>
-          <th className="team-scorer-table-head">Best Stage 1 Campaign</th>
+          <th className="team-scorer-table-head">Best Group Stage Campaign</th>
         </tr>
 
         <TeamScorerRow

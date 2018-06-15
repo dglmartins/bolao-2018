@@ -128,7 +128,7 @@ class Login extends Component {
                 navigateToLogIn={this.navigateToLogIn}
               />
           )}/>
-          <Route exact path='/login/createUser' render={() => (
+          {/* <Route exact path='/login/createUser' render={() => (
             <SignIn
               signInInput={this.state.signInInput}
               passwordInput={this.state.passwordInput}
@@ -143,7 +143,7 @@ class Login extends Component {
               onSubmit={this.createUser}
             />
 
-          )}/>
+          )}/> */}
         </section>
       </section>
     );

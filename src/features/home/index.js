@@ -32,6 +32,7 @@ class Home extends Component {
           this.props.getWatchGroupsStats()
         ]).then(() =>{
           this.props.spinnerOnOff(false);
+          this.props.history.push('/home/groupStandings')
 
         })
       } else {

@@ -55,7 +55,7 @@ const SignIn = (props) => (
         <div>
           <ViewNavLink navTitle="forgot your password?" handleClick={props.navigateToResetPassword}/>
           <LargeButton buttonText="Sign In" color="red-class"/>
-          <ViewNavLink navTitle="Create Account" handleClick={props.navigateToCreateUser}/>
+          {/* <ViewNavLink navTitle="Create Account" handleClick={props.navigateToCreateUser}/> */}
         </div>
       )}
     </form>

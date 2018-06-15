@@ -1,25 +1,24 @@
 .user-table {
-  width: 90%;
-  margin-left: 5%;
+  width: 100%;
   margin-top: 0;
 }
 
 .caption {
   background-color: #d50000;
-  line-height: 4em;
+  line-height: 2em;
   color: white;
 }
 
 .row {
   width: 100%;
-  line-height: 3em;
-  height: 3em;
+  line-height: 2em;
+  height: 2em;
   background-color: #e3f2fd;
   color: black;
 }
 
 .table-head {
-  height: 3em;
+  height: 2em;
 }
 
 @media (max-width: 500px) {

@@ -11,6 +11,45 @@
 	box-sizing: border-box;
 }
 
+/* preload images so no lag at show*/
+body::after{
+    position:absolute; width:0; height:0; overflow:hidden; z-index:-1;
+    content:url(./features/assets/flags/Argentina.svg)
+		url(./features/assets/flags/Argentina.svg)
+		url(./features/assets/flags/Australia.svg)
+		url(./features/assets/flags/Belgium.svg)
+		url(./features/assets/flags/Brazil.svg)
+		url(./features/assets/flags/Colombia.svg)
+		url(./features/assets/flags/CostaRica.svg)
+		url(./features/assets/flags/Croatia.svg)
+		url(./features/assets/flags/Denmark.svg)
+		url(./features/assets/flags/England.svg)
+		url(./features/assets/flags/France.svg)
+		url(./features/assets/flags/Germany.svg)
+		url(./features/assets/flags/Iceland.svg)
+		url(./features/assets/flags/Iran.svg)
+		url(./features/assets/flags/Japan.svg)
+		url(./features/assets/flags/Korea.svg)
+		url(./features/assets/flags/Mexico.png)
+		url(./features/assets/flags/Morocco.svg)
+		url(./features/assets/flags/Nigeria.svg)
+		url(./features/assets/flags/Panama.svg)
+		url(./features/assets/flags/Peru.png)
+		url(./features/assets/flags/Poland.svg)
+		url(./features/assets/flags/Argentina.svg)
+		url(./features/assets/flags/Portugal.png)
+		url(./features/assets/flags/Russia.svg)
+		url(./features/assets/flags/SaudiArabia.svg)
+		url(./features/assets/flags/Senegal.svg)
+		url(./features/assets/flags/Serbia.png)
+		url(./features/assets/flags/Spain.png)
+		url(./features/assets/flags/Sweden.svg)
+		url(./features/assets/flags/Switzerland.svg)
+		url(./features/assets/flags/Tunisia.svg)
+		url(./features/assets/flags/Uruguay.svg)
+;
+}
+
 /*reset margins, paddings and border so we know what we are doing*/
 html, body, main, h1, h2,
  h3, p, ol, ul, li, a {
