@@ -23,12 +23,20 @@
   height: 3em;
 }
 
+.table-head-narrow {
+  height: 3em;
+}
+
+
 
 @media (max-width: 500px) {
   .caption {
     font-size: 0.8em;
   }
   .table-head {
-    font-size: 0.8em;
+    font-size: 0.6em;
+  }
+  .table-head-narrow {
+    font-size: 0.6em;
   }
 }

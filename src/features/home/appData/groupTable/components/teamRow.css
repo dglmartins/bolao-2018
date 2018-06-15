@@ -1,22 +1,26 @@
 .flag-td {
-  width: 20%;
-  height: 8em;
+  width: 7%;
+  height: 2em;
   border-bottom: 1px solid gray;
 
 }
 
 .name-td {
   width: 20%;
-  height: 8em;
-  text-align: center;
+  height: 2em;
+  text-align: left;
   border-bottom: 1px solid gray;
 
 }
 
 .narrow-td {
-  width: 20%;
+  width: 7.5%;
   border-bottom: 1px solid gray;
 
+}
+
+.points {
+  font-weight: bold;
 }
 
 
@@ -29,4 +33,23 @@
 
 .team-row {
   border-bottom: 1px solid gray;
+}
+
+@media (max-width: 500px) {
+  .narrow-td {
+    font-size: 0.8em;
+  }
+  .name-td {
+    font-size: 0.8em;
+  }
+}
+
+@media (min-width: 600px) {
+  .flag-td {
+    height: 4em;
+    width: 15%;
+  }
+  .name-td {
+    height: 4em;
+  }
 }

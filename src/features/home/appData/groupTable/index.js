@@ -30,17 +30,53 @@ const GroupTable = (props) => {
           <th className="table-head" colSpan="2">Team</th>
           {props.showScore && (
             <th
-              className="table-head">points
+              className="table-head-narrow">MP
             </th>
           )}
+          {props.showScore && (
+            <th
+              className="table-head-narrow">W
+            </th>
+          )}
+          {props.showScore && (
+            <th
+              className="table-head-narrow">D
+            </th>
+          )}
+          {props.showScore && (
+            <th
+              className="table-head-narrow">L
+            </th>
+          )}
+          {props.showScore && (
+            <th
+              className="table-head-narrow">GF
+            </th>
+          )}
+          {props.showScore && (
+            <th
+              className="table-head-narrow">GA
+            </th>
+          )}
+          {props.showScore && (
+            <th
+              className="table-head-narrow">GD
+            </th>
+          )}
+          {props.showScore && (
+            <th
+              className="table-head-narrow">Pts
+            </th>
+          )}
+
         </tr>
-        {!props.type && orderedGroupArray.map((teamObject) => (
+        {!props.type && orderedGroupArray.map((teamStats) => (
           <TeamRow
             groupName={props.groupName}
-            teamName={teamObject.team}
-            teamPoints={teamObject["Pts"]}
+            teamName={teamStats.team}
+            teamStats={teamStats}
             handleSelect={handleSelect}
-            key={teamObject.team}
+            key={teamStats.team}
             showScore={props.showScore}
           />
         ))}
