@@ -1,10 +1,13 @@
 import React from 'react';
 import TeamRow from './components/TeamRow';
+import { sortByFIFAOrder } from '../../../services/utils/helpers';
+
 
 import './groupTable.css';
 // const R = require('ramda');
 
 const GroupTable = (props) => {
+  const orderedGroupArray = sortByFIFAOrder(props.group)
 
   // const groupArray = Object.keys(props.group).map((team) => (
   //   {[team]: {points: props.group[team]}}
@@ -26,16 +29,18 @@ const GroupTable = (props) => {
         <tr className="row">
           <th className="table-head" colSpan="2">Team</th>
           {props.showScore && (
-            <th className="table-head">points</th>
+            <th
+              className="table-head">points
+            </th>
           )}
         </tr>
-        {!props.type && Object.keys(props.group).map((team) => (
+        {!props.type && orderedGroupArray.map((teamObject) => (
           <TeamRow
             groupName={props.groupName}
-            teamName={team}
-            teamPoints={props.group[team]}
+            teamName={teamObject.team}
+            teamPoints={teamObject["Pts"]}
             handleSelect={handleSelect}
-            key={team}
+            key={teamObject.team}
             showScore={props.showScore}
           />
         ))}

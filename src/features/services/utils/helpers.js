@@ -4,7 +4,6 @@ import SaudiArabia from '../../assets/flags/SaudiArabia.svg';
 import Egypt from '../../assets/flags/Egypt.svg';
 import Iran from '../../assets/flags/Iran.svg';
 import Morocco from '../../assets/flags/Morocco.svg';
-
 import Portugal from '../../assets/flags/Portugal.png';
 import Spain from '../../assets/flags/Spain.png';
 import Australia from '../../assets/flags/Australia.svg';
@@ -31,6 +30,8 @@ import Colombia from '../../assets/flags/Colombia.svg';
 import Japan from '../../assets/flags/Japan.svg';
 import Poland from '../../assets/flags/Poland.svg';
 import Senegal from '../../assets/flags/Senegal.svg';
+import * as _ from 'ramda';
+
 
 
 
@@ -263,5 +264,17 @@ export const getCountryStyle = (country) => {
         backgroundSize: "contain",
       };
   }
-
 };
+
+export function sortByFIFAOrder(group) {
+  const groupArray = Object.keys(group).map((team) => (
+    Object.assign({}, group[team], {team})
+  ))
+  const sortByOrder = _.sortWith([
+    _.descend(_.prop('Pts')),
+    _.descend(_.prop('GD')),
+    _.descend(_.prop('GF')),
+  ]);
+  const orderedArray = sortByOrder(groupArray)
+  return orderedArray
+}

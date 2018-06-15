@@ -1,6 +1,6 @@
 import { user } from '../login/services/userReducer';
 import { header } from '../sharedComponents/mainHeader/services/headerReducer';
-import { groups } from '../home/services/reducers/groupsReducer';
+import { groups, groupsStats } from '../home/services/reducers/groupsReducer';
 import { status } from '../home/services/reducers/statusReducer';
 import { topScorers } from '../home/services/reducers/topScorersReducer';
 import { teams } from '../home/services/reducers/teamsReducer';
@@ -24,7 +24,8 @@ export default combineReducers({
   topScorerPick,
   teams,
   teamPick,
-  users
+  users,
+  groupsStats
   // filterIndexBy,
   // products,
   // companies,

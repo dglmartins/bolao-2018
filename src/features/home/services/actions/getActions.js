@@ -2,6 +2,7 @@ export const GET_STATUS = 'GET_STATUS';
 export const GET_TOP_SCORERS = 'GET_TOP_SCORERS';
 export const GET_TEAMS = 'GET_TEAMS';
 export const GET_USERS = 'GET_USERS';
+export const GET_GROUPS_STATS = "GET_GROUPS_STATS"
 
 
 export function getStatus(status) {
@@ -29,5 +30,12 @@ export function getUsers(users) {
   return {
     type: GET_USERS,
     users
+  }
+}
+
+export function getGroupsStats(groupsStats) {
+  return {
+    type: GET_GROUPS_STATS,
+    groupsStats
   }
 }
