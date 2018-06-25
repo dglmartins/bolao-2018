@@ -14,12 +14,12 @@ const UsersTable = (props) => {
           <th className="table-head">Name</th>
           <th className="table-head">points</th>
         </tr>
-        {Object.keys(props.users).map((user) => (
+        {props.users.map((user) => (
           <UserRow
-            user={props.users[user]}
-            uid={user}
-            userPoints={0}
-            key={user}
+            user={user}
+            uid={user.uid}
+            groupStagePoints={user.groupStagePoints}
+            key={user.uid}
           />
         ))}
       </tbody>

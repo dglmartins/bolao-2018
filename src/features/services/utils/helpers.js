@@ -279,3 +279,36 @@ export function sortByFIFAOrder(group) {
   const orderedArray = sortByOrder(groupArray)
   return orderedArray
 }
+
+function calcPointsRoundOne(groupStagePicks, user) {
+
+  let groupStagePoints = 0
+  const groupStageArray = Object.keys(groupStagePicks).map((group) => (
+    groupStagePicks[group]
+  ));
+  for (const group of groupStageArray) {
+    if (group.status === "open") {
+      groupStagePoints += 0
+    } else if(group.status === "closed") {
+      if (user.roundOnePicks[group.group].firstPlacePick === group.firstPlace) {
+        groupStagePoints += 10
+      }
+      if (user.roundOnePicks[group.group].firstPlacePick === group.secondPlace) {
+        groupStagePoints += 5
+      }
+      if (user.roundOnePicks[group.group].secondPlacePick === group.firstPlace) {
+        groupStagePoints += 5
+      }
+
+      if (user.roundOnePicks[group.group].secondPlacePick === group.secondPlace) {
+        groupStagePoints += 10
+      }
+    }
+
+
+  }
+  return _.merge(user, {groupStagePoints})
+
+}
+
+export const curriedPoints = _.curry(calcPointsRoundOne)

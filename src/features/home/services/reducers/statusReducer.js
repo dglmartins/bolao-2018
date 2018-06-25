@@ -14,7 +14,7 @@ const initialState = {
   threeFourPointsCalc: false,
   finalPointsCalc: false,
   topScorerPointsCalc: false,
-  bestGroupCampaignPointsCalc: false
+  bestGroupCampaignPointsCalc: false,
 
 };
 
