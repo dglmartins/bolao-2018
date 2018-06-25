@@ -25,7 +25,7 @@ const GroupView = (props) => {
               2nd place pick
             </div>
           </div>
-          {users[uid] && (
+          {users[uid] && users[uid].roundOnePicks && (
             <GroupTable
               groupName={group}
               group={props.groupsStats[group]}
@@ -36,7 +36,7 @@ const GroupView = (props) => {
         </div>
 
       ))}
-      {users[uid] && (
+      {users[uid] && users[uid].roundOnePicks && (
         <TeamScorerPickTable topScorerPick={users[uid].topScorerPick}
         teamPick={users[uid].teamPick}/>
       )}

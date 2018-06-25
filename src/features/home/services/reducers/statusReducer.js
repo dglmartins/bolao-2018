@@ -1,7 +1,21 @@
 import { GET_STATUS } from '../actions/getActions';
 
 const initialState = {
-  roundOnePicks: false
+  roundOnePicks: false,
+  "round16PicksOpen?": false,
+  "quarterPicksOpen?": false,
+  "semiPicksOpen?": false,
+  "threeFourPickOpen?": false,
+  "finalPickOpen?": false,
+  roundOnePointsCalc: false,
+  round16PointsCalc: false,
+  quarterPointsCalc: false,
+  semiPointsCalc: false,
+  threeFourPointsCalc: false,
+  finalPointsCalc: false,
+  topScorerPointsCalc: false,
+  bestGroupCampaignPointsCalc: false
+
 };
 
 export function status (state = initialState, action) {
