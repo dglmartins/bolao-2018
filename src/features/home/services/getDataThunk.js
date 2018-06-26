@@ -1,5 +1,5 @@
 import { getRoundOnePicks, getTopScorerPick, getTeamPick} from './actions/picksActions';
-import { getTeams, getUsers, getTopScorers, getStatus, getGroupsStats} from './actions/getActions';
+import { getTeams, getUsers, getTopScorers, getStatus, getGroupsStats, getRound16Stats} from './actions/getActions';
 
 
 export function getWatchGroupsStats () {
@@ -7,6 +7,15 @@ export function getWatchGroupsStats () {
     const ref = api.firebaseDb.ref().child("groupsStats").orderByKey();
     return ref.on('value', (snapshot) => {
       dispatch(getGroupsStats(snapshot.val()));
+    });
+  };
+};
+
+export function getWatchRound16Stats () {
+  return function(dispatch, getState, api) {
+    const ref = api.firebaseDb.ref().child("round16Stats").orderByKey();
+    return ref.on('value', (snapshot) => {
+      dispatch(getRound16Stats(snapshot.val()));
     });
   };
 };
