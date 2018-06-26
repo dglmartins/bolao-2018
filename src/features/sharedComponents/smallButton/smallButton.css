@@ -1,0 +1,25 @@
+/*login button*/
+.small-button {
+	width: 30%;
+	height: 1.5em;
+	margin-left: 15%;
+	color: white;
+	border-style: hidden;
+	cursor: pointer;
+	border-radius: 0.2em;
+	/* background-color: #ea7a87; */
+	box-shadow: 0 4px 2px -2px #c0c0c0;
+	font-size: 1.2em;
+}
+
+.small-button:hover {
+	color: #c0c0c0;
+}
+
+.blue-class {
+	background-color: #0288d1;
+}
+
+.red-class {
+	background-color: #d50000;
+}

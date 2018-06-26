@@ -1,0 +1,100 @@
+.group-table {
+  width: 90%;
+  margin-left: 5%;
+  margin-bottom: 1em;
+}
+
+.caption {
+  background-color: #d50000;
+  line-height: 4em;
+  color: white;
+  font-size: 1em
+}
+
+.row {
+  width: 100%;
+  line-height: 3em;
+  height: 3em;
+  background-color: #e3f2fd;
+  color: black;
+}
+
+.table-head {
+  height: 3em;
+}
+
+.table-head-narrow {
+  height: 3em;
+}
+
+.flag-td {
+  width: 10%;
+  height: 3em;
+  border-bottom: 1px solid gray;
+
+}
+
+.name-td {
+  width: 17.5%;
+  height: 2em;
+  text-align: left;
+  border-bottom: 1px solid gray;
+
+}
+.name-right-td {
+  width: 17.5%;
+  height: 2em;
+  text-align: right;
+  border-bottom: 1px solid gray;
+
+}
+
+.score-td {
+  width: 10%;
+  height: 2em;
+  text-align: center;
+  border-bottom: 1px solid gray;
+
+}
+
+.x-td {
+  width: 5%;
+  height: 2em;
+  text-align: center;
+  border-bottom: 1px solid gray;
+
+}
+
+
+@media (max-width: 500px) {
+  .caption {
+    font-size: 0.8em;
+  }
+  .table-head {
+    font-size: 0.6em;
+  }
+  .table-head-narrow {
+    font-size: 0.6em;
+  }
+
+  .name-td {
+    font-size: 0.6em;
+  }
+
+  .name-right-td {
+    font-size: 0.6em;
+  }
+
+  .x-td {
+    font-size: 0.6em;
+  }
+
+  .score-td {
+    font-size: 0.8em;
+  }
+
+  .flag-td {
+    width: 8%;
+    height: 2em;
+  }
+}

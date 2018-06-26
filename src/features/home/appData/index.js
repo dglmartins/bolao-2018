@@ -5,6 +5,7 @@ import GroupView from './groupView';
 import UsersView from './usersView';
 import RulesTable from './rules/rulesTable';
 import RoundOnePicks from './roundOnePicks';
+import Round16Picks from './round16Picks';
 import './appData.css'
 class AppData extends Component {
   componentWillMount() {
@@ -38,6 +39,9 @@ class AppData extends Component {
                 topScorerPick={this.props.topScorerPick}
                 teamPick={this.props.teamPick}
               />
+          )}/>
+          <Route path='/home/round16Picks' render={() => (
+              <Round16Picks/>
           )}/>
           <Route path='/home/bolaoStandings' component={UsersView}/>
           <Route path='/home/rules' component={RulesTable}/>

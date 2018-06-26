@@ -1,0 +1,22 @@
+.picker-container {
+  width: 50%;
+}
+
+.score-table {
+  width: 95%;
+  margin-bottom: 1em;
+}
+
+.score-left {
+  text-align: left;
+}
+
+.score-right {
+  text-align: right;
+}
+
+.show-select {
+  width: 40%;
+  font-size: 0.8em;
+  text-align: center;
+}
