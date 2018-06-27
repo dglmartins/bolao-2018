@@ -9,16 +9,18 @@ import GamePicker from '../gamePicker';
 
 
 class Round16Picks extends Component {
+
   render() {
+    console.log(this.props)
     return (
       <div>
         <div className="pick-status">
            {this.props.status.round16PicksOpen ?
-            "open for picks" :
-            "Round 16 picks closed"
+            "Round 16 - open for picks" :
+            "Round 16 - picks closed"
           }
         </div>
-        {this.props.status.round16PicksOpen && (
+        {this.props.status.round16PicksOpen && this.props.showPicker && (
           <div>
             <div className="rules-status">
               Pick score for regular + extra time. Press + to start pick
@@ -35,16 +37,21 @@ class Round16Picks extends Component {
           if (game.status === "set") {
             return (
               <div key={game.id}>
+                {this.props.round16Picks[game.id] && (
+                  <GameTable
+                    game={game}
+                    picks={this.props.round16Picks[game.id]}
+                  />
+                )}
 
-                <GameTable
-                  game={game}
-                  picks={this.props.round16Picks[game.id]}
-                />
-                <GamePicker
-                  picks={this.props.round16Picks[game.id]}
-                  game={game}
-                  round="round16Picks"
-                />
+                {this.props.showPicker && (
+                  <GamePicker
+                    picks={this.props.round16Picks[game.id]}
+                    game={game}
+                    round="round16Picks"
+                  />
+                )}
+
                 {/* <div>{game.team1}</div>
                 <div>{game.team2}</div> */}
 
@@ -60,7 +67,7 @@ class Round16Picks extends Component {
                 /> */}
               </div>
             )
-          } 
+          }
 
         })}
 
@@ -69,13 +76,13 @@ class Round16Picks extends Component {
   }
 }
 
-function mapStateToProps({ round16Stats, round16Picks, status }) {
+function mapStateToProps({ users, round16Stats, round16Picks, status }) {
   return {
     round16Stats: Object.keys(round16Stats).map((game) => (
       round16Stats[game]
     )),
     status,
-    round16Picks
+    // round16Picks
   }
 }
 

@@ -41,7 +41,10 @@ class AppData extends Component {
               />
           )}/>
           <Route path='/home/round16Picks' render={() => (
-              <Round16Picks/>
+              <Round16Picks
+                showPicker={true}
+                round16Picks={this.props.round16Picks}
+              />
           )}/>
           <Route path='/home/bolaoStandings' component={UsersView}/>
           <Route path='/home/rules' component={RulesTable}/>

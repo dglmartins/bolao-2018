@@ -56,6 +56,7 @@ class Home extends Component {
               roundOnePicks={this.props.roundOnePicks}
               topScorerPick={this.props.topScorerPick}
               teamPick={this.props.teamPick}
+              round16Picks={this.props.round16Picks}
             />
             {/* <Route path="/home/sideMenu" component={SideMenu}/> */}
           </section>
@@ -67,12 +68,13 @@ class Home extends Component {
   }
 }
 
-function mapStateToProps ({ user, roundOnePicks, topScorerPick, teamPick }) {
+function mapStateToProps ({ user, roundOnePicks, topScorerPick, teamPick, round16Picks }) {
     return {
       user,
       roundOnePicks,
       topScorerPick,
-      teamPick
+      teamPick,
+      round16Picks
     };
 }
 

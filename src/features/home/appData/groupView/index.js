@@ -4,6 +4,7 @@ import GroupTable from '../groupTable';
 import './groupView.css';
 import { withRouter } from 'react-router-dom';
 import TeamScorerPickTable from '../teamScorerPickTable';
+import Round16Picks from '../round16Picks';
 
 const GroupView = (props) => {
   const {users, user, uid} = props;
@@ -39,6 +40,12 @@ const GroupView = (props) => {
       {users[uid] && users[uid].roundOnePicks && (
         <TeamScorerPickTable topScorerPick={users[uid].topScorerPick}
         teamPick={users[uid].teamPick}/>
+      )}
+
+      {users[uid] && users[uid].round16Picks && (
+        <Round16Picks
+          round16Picks={users[uid].round16Picks} showPicker={false}
+        />
       )}
     </div>
   );
