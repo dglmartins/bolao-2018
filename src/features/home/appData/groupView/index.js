@@ -7,7 +7,7 @@ import TeamScorerPickTable from '../teamScorerPickTable';
 import Round16Picks from '../round16Picks';
 
 const GroupView = (props) => {
-  const {users, user, uid} = props;
+  const {users, user, uid, status} = props;
   console.log(props)
   return (
     <div>
@@ -15,6 +15,14 @@ const GroupView = (props) => {
       {users[uid] && (
         <div className="standings-title">{`Picks - ${users[uid].displayName}`}</div>
       )}
+      {users[uid] && users[uid].round16Picks && (
+        <Round16Picks
+          round16Picks={users[uid].round16Picks} showPicker={false}
+          showPicks={!status.round16PicksOpen}
+        />
+      )}
+
+      <div className="pick-status">Group Picks:</div>
 
       {props.groupsNames.map((group) => (
         <div key={group}>
@@ -42,16 +50,12 @@ const GroupView = (props) => {
         teamPick={users[uid].teamPick}/>
       )}
 
-      {users[uid] && users[uid].round16Picks && (
-        <Round16Picks
-          round16Picks={users[uid].round16Picks} showPicker={false}
-        />
-      )}
+
     </div>
   );
 };
 
-function mapStateToProps({ groupsStats, user, users }) {
+function mapStateToProps({ groupsStats, user, users, status }) {
 
   return {
     groupsNames: Object.keys(groupsStats).map((group) => (
@@ -59,7 +63,8 @@ function mapStateToProps({ groupsStats, user, users }) {
     )),
     groupsStats,
     users,
-    user
+    user,
+    status
   }
 }
 

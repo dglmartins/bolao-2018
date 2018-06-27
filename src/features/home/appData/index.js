@@ -44,6 +44,7 @@ class AppData extends Component {
               <Round16Picks
                 showPicker={true}
                 round16Picks={this.props.round16Picks}
+                showPicks={this.props.showRound16Picks}
               />
           )}/>
           <Route path='/home/bolaoStandings' component={UsersView}/>

@@ -7,6 +7,7 @@ const initialState = {
   "semiPicksOpen": false,
   "threeFourPickOpen": false,
   "finalPickOpen": false,
+  "showPickToOthers": false
 
 };
 

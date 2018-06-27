@@ -33,7 +33,7 @@ class Round16Picks extends Component {
           </div>
         )}
 
-        {this.props.status.round16PicksOpen && this.props.round16Stats.map((game, index) => {
+        {this.props.showPicks  && this.props.round16Stats.map((game, index) => {
           if (game.status === "set") {
             return (
               <div key={game.id}>
