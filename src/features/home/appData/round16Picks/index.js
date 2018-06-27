@@ -21,7 +21,7 @@ class Round16Picks extends Component {
         {this.props.status.round16PicksOpen && (
           <div>
             <div className="rules-status">
-              Pick score for regular + extra time.
+              Pick score for regular + extra time. Press + to start pick
 
             </div>
             <div className="rules-status">
@@ -31,32 +31,38 @@ class Round16Picks extends Component {
           </div>
         )}
 
-        {this.props.status.round16PicksOpen && this.props.round16Stats.map((game) => (
-          <div key={game}>
+        {this.props.status.round16PicksOpen && this.props.round16Stats.map((game, index) => {
+          if (game.status === "set") {
+            return (
+              <div key={game.id}>
 
-            <GameTable
-              game={game}
-              picks={this.props.round16Picks[game.id]}
-            />
-            <GamePicker
-              picks={this.props.round16Picks[game.id]}
-              game={game}
-            />
-            {/* <div>{game.team1}</div>
-            <div>{game.team2}</div> */}
+                <GameTable
+                  game={game}
+                  picks={this.props.round16Picks[game.id]}
+                />
+                <GamePicker
+                  picks={this.props.round16Picks[game.id]}
+                  game={game}
+                  round="round16Picks"
+                />
+                {/* <div>{game.team1}</div>
+                <div>{game.team2}</div> */}
 
-            {/* <RoundOnePicker
-              roundOnePicks={this.props.roundOnePicks[group]}
-              groupName={group}
-              group={this.props.groupsStats[group]}
-            />
+                {/* <RoundOnePicker
+                  roundOnePicks={this.props.roundOnePicks[group]}
+                  groupName={group}
+                  group={this.props.groupsStats[group]}
+                />
 
-            <GroupTable
-              groupName={group} group={this.props.groupsStats[group]}
-              showScore={false}
-            /> */}
-          </div>
-        ))}
+                <GroupTable
+                  groupName={group} group={this.props.groupsStats[group]}
+                  showScore={false}
+                /> */}
+              </div>
+            )
+          } 
+
+        })}
 
       </div>
     )

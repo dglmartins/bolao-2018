@@ -1,4 +1,4 @@
-import { getRoundOnePicks, getTopScorerPick, getTeamPick} from './actions/picksActions';
+import { getRoundOnePicks, getRound16Picks, getTopScorerPick, getTeamPick} from './actions/picksActions';
 import { getTeams, getUsers, getTopScorers, getStatus, getGroupsStats, getRound16Stats} from './actions/getActions';
 
 
@@ -81,6 +81,17 @@ export function getOnceMyRoundOnePicks (uid) {
     return ref.once('value').then((snapshot) => {
       if (snapshot.val()) {
         dispatch(getRoundOnePicks(snapshot.val()));
+      }
+    });
+  };
+};
+
+export function getOnceMyRound16Picks (uid) {
+  return function(dispatch, getState, api) {
+    const ref = api.firebaseDb.ref().child(`users/${uid}/round16Picks`).orderByKey();
+    return ref.once('value').then((snapshot) => {
+      if (snapshot.val()) {
+        dispatch(getRound16Picks(snapshot.val()));
       }
     });
   };

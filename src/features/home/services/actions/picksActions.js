@@ -1,8 +1,12 @@
 export const GET_ROUND_ONE_PICKS = 'GET_ROUND_ONE_PICKS';
 export const GET_ROUND_16_PICKS = 'GET_ROUND_16_PICKS';
 export const CHANGE_PICK = 'CHANGE_PICK';
+export const CHANGE_ROUND_16_GAME_PICK = 'CHANGE_ROUND_16_GAME_PICK';
+export const CHANGE_ROUND_16_TEAM_ADVANCE = 'CHANGE_ROUND_16_TEAM_ADVANCE';
+
 export const GET_TOP_SCORER_PICK = 'GET_TOP_SCORER_PICK';
 export const GET_TEAM_PICK = 'GET_TEAM_PICK';
+
 
 export function getRoundOnePicks(roundOnePicks) {
   return {
@@ -24,6 +28,22 @@ export function changePick({group, whichPick, pick}) {
     group,
     whichPick,
     pick
+  }
+}
+
+export function changeRound16GamePick({whichGame, pick}) {
+  return {
+    type: CHANGE_ROUND_16_GAME_PICK,
+    whichGame,
+    pick
+  }
+}
+
+export function changeRound16TeamAdvance({whichGame, teamAdvance}) {
+  return {
+    type: CHANGE_ROUND_16_TEAM_ADVANCE,
+    whichGame,
+    teamAdvance
   }
 }
 

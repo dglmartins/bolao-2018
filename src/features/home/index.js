@@ -9,7 +9,7 @@ import { firebaseAuth } from '../services/utils/api';
 import { logInOut } from '../login/services/userActions';
 import { changeHeaderNameShowing } from '../sharedComponents//mainHeader/services/headerActions';
 
-import { getOnceMyRoundOnePicks, getStatusThunk, getTopScorersThunk, getTopScorerPickThunk, getTeamsThunk, getTeamPickThunk, getOnceUsers, getWatchGroupsStats, getWatchRound16Stats } from './services/getDataThunk';
+import { getOnceMyRoundOnePicks, getStatusThunk, getTopScorersThunk, getTopScorerPickThunk, getTeamsThunk, getTeamPickThunk, getOnceUsers, getWatchGroupsStats, getWatchRound16Stats, getOnceMyRound16Picks } from './services/getDataThunk';
 import { spinnerOnOff } from '../spinner/services/spinnerActions';
 
 
@@ -30,7 +30,8 @@ class Home extends Component {
           this.props.getTeamPickThunk(currentUser.uid),
           this.props.getOnceUsers(),
           this.props.getWatchGroupsStats(),
-          this.props.getWatchRound16Stats()
+          this.props.getWatchRound16Stats(),
+          this.props.getOnceMyRound16Picks(currentUser.uid)
         ]).then(() =>{
           this.props.spinnerOnOff(false);
           this.props.history.push(`/home/groupStandings/${currentUser.uid}`)
@@ -88,7 +89,8 @@ function mapDispatchToProps (dispatch) {
     getTeamPickThunk: (data) => dispatch(getTeamPickThunk(data)),
     getOnceUsers: () => dispatch(getOnceUsers()),
     getWatchGroupsStats: () => dispatch(getWatchGroupsStats()),
-    getWatchRound16Stats: () => dispatch(getWatchRound16Stats())
+    getWatchRound16Stats: () => dispatch(getWatchRound16Stats()),
+    getOnceMyRound16Picks: (data) => dispatch(getOnceMyRound16Picks(data))
   };
 }
 

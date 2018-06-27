@@ -32,9 +32,20 @@ const GameTable = (props) => {
         <tr>
           <td className="flag-td" style={styleOne}></td>
           <td className="name-td">{props.game.team1}</td>
-          <td className="score-td">{props.picks.team1Score}</td>
+          {!props.picks.set
+            ?
+            <td className="score-td">-</td>
+            :
+            <td className="score-td">{props.picks.team1Score}</td>
+          }
           <td className="x-td">X</td>
-          <td className="score-td">{props.picks.team2Score}</td>
+          {!props.picks.set
+            ?
+            <td className="score-td">-</td>
+            :
+            <td className="score-td">{props.picks.team2Score}</td>
+          }
+
           <td className="name-right-td">{props.game.team2}</td>
           <td className="flag-td" style={styleTwo}></td>
         </tr>
