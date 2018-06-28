@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Route, withRouter, Switch } from 'react-router-dom';
-import { connect } from 'react-redux';
 import GroupView from './groupView';
 import UsersView from './usersView';
 import RulesTable from './rules/rulesTable';

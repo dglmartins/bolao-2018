@@ -37,7 +37,7 @@ const HomeHeader = (props) => {
             </HeaderUserContainer>
           </div>
         )}
-        <img src={ball}></img>
+        <img src={ball} alt="ball"></img>
         {/* {!props.onSideMenu && (
           <div className="header-logo-container">
           </div>

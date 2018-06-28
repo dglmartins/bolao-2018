@@ -2,12 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import GroupTable from '../groupTable';
 import './groupView.css';
-import { withRouter } from 'react-router-dom';
 import TeamScorerPickTable from '../teamScorerPickTable';
 import Round16Picks from '../round16Picks';
 
 const GroupView = (props) => {
-  const {users, user, uid, status} = props;
+  const {users, uid, status} = props;
   return (
     <div>
 
@@ -54,7 +53,7 @@ const GroupView = (props) => {
   );
 };
 
-function mapStateToProps({ groupsStats, user, users, status }) {
+function mapStateToProps({ groupsStats, users, status }) {
 
   return {
     groupsNames: Object.keys(groupsStats).map((group) => (
@@ -62,7 +61,6 @@ function mapStateToProps({ groupsStats, user, users, status }) {
     )),
     groupsStats,
     users,
-    user,
     status
   }
 }

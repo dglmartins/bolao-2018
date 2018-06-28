@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './home.css';
-import { Route, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import SubHeader from './subHeader';
 import AppData from './appData';

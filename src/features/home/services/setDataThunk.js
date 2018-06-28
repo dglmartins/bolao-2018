@@ -99,7 +99,6 @@ export function setTeamPick({uid, teamPick}) {
 
 export function updatePick({uid, group, whichPick, pick}) {
   const pickId = `${group}-${whichPick}-${uid}`;
-  const data = {user: uid, group, whichPick, pick}
   const updates = {}
   updates[`users/${uid}/roundOnePicks/${group}/${whichPick}`] = pick;
   updates[`roundOnePicks/${pickId}/pick`] = pick;

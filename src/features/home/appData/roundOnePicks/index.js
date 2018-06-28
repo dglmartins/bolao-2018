@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import GroupTable from '../groupTable';
-import TeamScorerPickTable from '../teamScorerPickTable';
 import RoundOnePicker from '../roundOnePicker';
 import './roundOnePicks.css';
 import TopScorerPicker from '../topScorerPicker';

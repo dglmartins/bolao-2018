@@ -66,6 +66,8 @@ class Round16Picks extends Component {
                 /> */}
               </div>
             )
+          } else {
+            return <div></div>
           }
 
         })}

@@ -81,7 +81,7 @@ const GroupTable = (props) => {
             myPicks={props.myPicks}
           />
         ))}
-        {(props.type == "picks") && Object.keys(props.picks).map((pick) => (
+        {(props.type === "picks") && Object.keys(props.picks).map((pick) => (
           <TeamRow
             groupName={props.groupName}
             teamName={props.picks[pick]}

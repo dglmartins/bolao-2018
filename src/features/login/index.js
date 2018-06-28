@@ -4,7 +4,6 @@ import { Route, withRouter } from 'react-router-dom';
 import './login.css';
 import SignIn from './signIn';
 import ResetPass from './resetPass';
-import MainHeader from '../sharedComponents/mainHeader';
 import { firebaseAuth } from '../services/utils/api';
 import { spinnerOnOff } from '../spinner/services/spinnerActions';
 import { signInThunk, resetPassThunk, createUserThunk } from './services/logInThunk';
