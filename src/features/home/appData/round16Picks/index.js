@@ -11,7 +11,6 @@ import GamePicker from '../gamePicker';
 class Round16Picks extends Component {
 
   render() {
-    console.log(this.props)
     return (
       <div>
         <div className="pick-status">

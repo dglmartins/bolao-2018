@@ -5,7 +5,6 @@ import UserRow from './components/UserRow';
 import './usersTable.css'
 
 const UsersTable = (props) => {
-  console.log(props)
 
   return (
     <table className="user-table">

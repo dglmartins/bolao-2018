@@ -38,7 +38,6 @@ class RoundOnePicker extends Component {
   }
 
   render() {
-    console.log(this.props.roundOnePicks)
 
     return (
       <table className="picker-table">

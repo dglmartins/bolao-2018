@@ -6,13 +6,11 @@ class TopScorerPicker extends Component {
 
   changePick= (e) => {
     const topScorerPick = e.target.value;
-    console.log(topScorerPick)
     const { uid } = this.props.user.currentUser;
     this.props.setTopScorerPick({uid, topScorerPick})
   }
 
   render() {
-    console.log(this.props)
 
     return (
       <table className="picker-table">

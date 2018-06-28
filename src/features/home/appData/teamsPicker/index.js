@@ -6,13 +6,11 @@ class TeamsPicker extends Component {
 
   changePick= (e) => {
     const teamPick = e.target.value;
-    console.log(teamPick)
     const { uid } = this.props.user.currentUser;
     this.props.setTeamPick({uid, teamPick})
   }
 
   render() {
-    console.log(this.props)
 
     return (
       <table className="picker-table">

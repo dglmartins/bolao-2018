@@ -8,7 +8,6 @@ import Round16Picks from '../round16Picks';
 
 const GroupView = (props) => {
   const {users, user, uid, status} = props;
-  console.log(props)
   return (
     <div>
 
