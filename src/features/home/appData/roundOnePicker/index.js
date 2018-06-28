@@ -11,9 +11,9 @@ class RoundOnePicker extends Component {
     const whichPick = "firstPlacePick";
     const pick = firstPlacePick;
     const { uid } = this.props.user.currentUser;
-    if (firstPlacePick == this.props.roundOnePicks.secondPlacePick) {
+    if (firstPlacePick === this.props.roundOnePicks.secondPlacePick) {
       alert(`You've already picked ${firstPlacePick}`);
-    } else if (this.props.roundOnePicks.firstPlacePick == "disabled") {
+    } else if (this.props.roundOnePicks.firstPlacePick === "disabled") {
       this.props.createPick({uid, group, whichPick, pick})
     } else {
       this.props.updatePick({uid, group, whichPick, pick})
@@ -28,9 +28,9 @@ class RoundOnePicker extends Component {
     const whichPick = "secondPlacePick";
     const pick = secondPlacePick;
     const { uid } = this.props.user.currentUser;
-    if (secondPlacePick == this.props.roundOnePicks.firstPlacePick) {
+    if (secondPlacePick === this.props.roundOnePicks.firstPlacePick) {
       alert(`You've already picked ${secondPlacePick}`);
-    } else if (this.props.roundOnePicks.secondPlacePick == "disabled") {
+    } else if (this.props.roundOnePicks.secondPlacePick === "disabled") {
       this.props.createPick({uid, group, whichPick, pick})
     } else {
       this.props.updatePick({uid, group, whichPick, pick})
