@@ -14,7 +14,6 @@ const UserRow = (props) => {
       <td className="user-td mid-align bold-italic">{props.totalPoints}</td>
       <td className="user-td mid-align">{props.round16Points}</td>
       <td className="user-td mid-align">{props.groupStagePoints}</td>
-      <td className="user-td mid-align">0</td>
     </tr>
   )
 };

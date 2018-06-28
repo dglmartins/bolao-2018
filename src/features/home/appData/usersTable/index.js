@@ -16,7 +16,6 @@ const UsersTable = (props) => {
           <th className="table-head">Total Points</th>
           <th className="table-head">Round 16 Pts</th>
           <th className="table-head">Group Pts</th>
-          <th className="table-head">Best Campaign Pts</th>
         </tr>
         {props.users.map((user) => (
           <UserRow
