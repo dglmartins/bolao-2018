@@ -14,7 +14,6 @@ const getStyleRow = (pickObject, teamName) => {
 
 
 const TeamRow = (props) => {
-  console.log(props.myPicks)
   const style = getCountryStyle(props.teamName)
   const styleRow = getStyleRow(props.myPicks, props.teamName);
 

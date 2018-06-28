@@ -280,12 +280,17 @@ export function sortByFIFAOrder(group) {
   return orderedArray
 }
 
-function calcPointsRoundOne(groupStagePicks, user) {
+function calcPoints(groupStagePicks, round16Results, user) {
 
-  let groupStagePoints = 0
+  let groupStagePoints = 0;
+  let round16Points = 0;
   const groupStageArray = Object.keys(groupStagePicks).map((group) => (
     groupStagePicks[group]
   ));
+  const round16Array = Object.keys(round16Results).map((gameId) => (
+    round16Results[gameId]
+  ));
+
   for (const group of groupStageArray) {
     if (group.status === "open") {
       groupStagePoints += 0
@@ -304,11 +309,36 @@ function calcPointsRoundOne(groupStagePicks, user) {
         groupStagePoints += 10
       }
     }
-
-
   }
-  return _.merge(user, {groupStagePoints})
+
+  for (const game of round16Array) {
+
+    if (game.status === "closed" && user.round16Picks && user.round16Picks[game.id]) {
+      const actualGoalsDifference = game.team1Score - game.team2Score
+      const guessedGoalsDifference = user.round16Picks[game.id].team1Score - user.round16Picks[game.id].team2Score
+      if (user.round16Picks[game.id].teamAdvance === game.teamAdvance) {
+        round16Points += 2
+      }
+
+      if (user.round16Picks[game.id].team1Score === game.team1Score) {
+        round16Points += 1
+      }
+
+      if (user.round16Picks[game.id].team2Score === game.team2Score) {
+        round16Points += 1
+      }
+
+      if (actualGoalsDifference === guessedGoalsDifference) {
+        round16Points += 1
+      }
+
+    }
+  }
+
+  const totalPoints = groupStagePoints + round16Points
+
+  return _.merge(user, {groupStagePoints, round16Points, totalPoints})
 
 }
 
-export const curriedPoints = _.curry(calcPointsRoundOne)
+export const curriedPoints = _.curry(calcPoints)

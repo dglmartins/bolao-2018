@@ -17,12 +17,12 @@ const UsersView = (props) => {
 
 function mapStateToProps({ users, status }) {
   // console.log(_.map(curriedPoints(status.groupStagePicks), users))
-  const usersWithPoints = (_.map(curriedPoints(status.groupStagePicks), users))
+  const usersWithPoints = (_.map(curriedPoints(status.groupStagePicks, status.round16Results), users))
   const usersWithPointsArray = Object.keys(usersWithPoints).map((uid) => (
     _.merge(usersWithPoints[uid], {uid})
   ))
   const orderUsers =  _.sortWith([
-    _.descend(_.prop('groupStagePoints')),
+    _.descend(_.prop('totalPoints')),
     _.ascend(_.prop('displayName'))
   ])
 

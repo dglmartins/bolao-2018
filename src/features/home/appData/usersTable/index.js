@@ -5,6 +5,7 @@ import UserRow from './components/UserRow';
 import './usersTable.css'
 
 const UsersTable = (props) => {
+  console.log(props)
 
   return (
     <table className="user-table">
@@ -12,13 +13,18 @@ const UsersTable = (props) => {
       <tbody>
         <tr className="row">
           <th className="table-head">Name</th>
-          <th className="table-head">points</th>
+          <th className="table-head">Total Points</th>
+          <th className="table-head">Round 16 Pts</th>
+          <th className="table-head">Group Pts</th>
+          <th className="table-head">Best Campaign Pts</th>
         </tr>
         {props.users.map((user) => (
           <UserRow
             user={user}
             uid={user.uid}
+            round16Points={user.round16Points}
             groupStagePoints={user.groupStagePoints}
+            totalPoints={user.totalPoints}
             key={user.uid}
           />
         ))}

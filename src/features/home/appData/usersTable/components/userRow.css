@@ -1,7 +1,18 @@
 .user-td {
-  width: 50%;
+  width: 20%;
   height: 3em;
   border-bottom: 1px solid gray;
   text-align: center;
 
+}
+
+.bold-italic {
+  font-weight: bold;
+  font-style: italic;
+}
+
+@media (max-width: 500px) {
+  .user-td {
+    font-size: 0.7em;
+  }
 }
