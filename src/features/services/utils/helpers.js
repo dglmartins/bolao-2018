@@ -280,15 +280,20 @@ export function sortByFIFAOrder(group) {
   return orderedArray
 }
 
-function calcPoints(groupStagePicks, round16Results, user) {
+function calcPoints(groupStagePicks, round16Results, quarterResults, user) {
 
   let groupStagePoints = 0;
   let round16Points = 0;
+  let quarterPoints = 0;
+
   const groupStageArray = Object.keys(groupStagePicks).map((group) => (
     groupStagePicks[group]
   ));
   const round16Array = Object.keys(round16Results).map((gameId) => (
     round16Results[gameId]
+  ));
+  const quarterArray = Object.keys(quarterResults).map((gameId) => (
+    quarterResults[gameId]
   ));
 
   for (const group of groupStageArray) {
@@ -335,9 +340,33 @@ function calcPoints(groupStagePicks, round16Results, user) {
     }
   }
 
-  const totalPoints = groupStagePoints + round16Points
+  for (const game of quarterArray) {
 
-  return _.merge(user, {groupStagePoints, round16Points, totalPoints})
+    if (game.status === "closed" && user.quarterPicks && user.quarterPicks[game.id]) {
+      const actualGoalsDifference = game.team1Score - game.team2Score
+      const guessedGoalsDifference = user.quarterPicks[game.id].team1Score - user.quarterPicks[game.id].team2Score
+      if (user.quarterPicks[game.id].teamAdvance === game.teamAdvance) {
+        quarterPoints += 6
+      }
+
+      if (user.quarterPicks[game.id].team1Score === game.team1Score) {
+        quarterPoints += 3
+      }
+
+      if (user.quarterPicks[game.id].team2Score === game.team2Score) {
+        quarterPoints += 3
+      }
+
+      if (actualGoalsDifference === guessedGoalsDifference) {
+        quarterPoints += 3
+      }
+
+    }
+  }
+
+  const totalPoints = groupStagePoints + round16Points + quarterPoints
+
+  return _.merge(user, {groupStagePoints, round16Points, quarterPoints, totalPoints})
 
 }
 

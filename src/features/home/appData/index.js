@@ -5,6 +5,7 @@ import UsersView from './usersView';
 import RulesTable from './rules/rulesTable';
 import RoundOnePicks from './roundOnePicks';
 import Round16Picks from './round16Picks';
+import QuarterPicks from './quarterPicks';
 import './appData.css'
 class AppData extends Component {
   componentWillMount() {
@@ -44,6 +45,13 @@ class AppData extends Component {
                 showPicker={true}
                 round16Picks={this.props.round16Picks}
                 showPicks={this.props.showRound16Picks}
+              />
+          )}/>
+          <Route path='/home/quarterPicks' render={() => (
+              <QuarterPicks
+                showPicker={true}
+                quarterPicks={this.props.quarterPicks}
+                showPicks={this.props.showQuarterPicks}
               />
           )}/>
           <Route path='/home/bolaoStandings' component={UsersView}/>

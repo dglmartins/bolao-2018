@@ -5,6 +5,7 @@ import UserRow from './components/UserRow';
 import './usersTable.css'
 
 const UsersTable = (props) => {
+  console.log(props.users)
 
   return (
     <table className="user-table">
@@ -13,6 +14,7 @@ const UsersTable = (props) => {
         <tr className="row">
           <th className="table-head">Name</th>
           <th className="table-head">Total Points</th>
+          <th className="table-head">Quarter Finals Pts</th>
           <th className="table-head">Round 16 Pts</th>
           <th className="table-head">Group Pts</th>
         </tr>
@@ -22,6 +24,7 @@ const UsersTable = (props) => {
             uid={user.uid}
             round16Points={user.round16Points}
             groupStagePoints={user.groupStagePoints}
+            quarterPoints={user.quarterPoints}
             totalPoints={user.totalPoints}
             key={user.uid}
           />

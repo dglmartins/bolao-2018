@@ -4,6 +4,7 @@ import GroupTable from '../groupTable';
 import './groupView.css';
 import TeamScorerPickTable from '../teamScorerPickTable';
 import Round16Picks from '../round16Picks';
+import QuarterPicks from '../quarterPicks';
 
 const GroupView = (props) => {
   const {users, uid, status} = props;
@@ -12,6 +13,12 @@ const GroupView = (props) => {
 
       {users[uid] && (
         <div className="standings-title">{`Picks - ${users[uid].displayName}`}</div>
+      )}
+      {users[uid] && users[uid].quarterPicks && (
+        <QuarterPicks
+          quarterPicks={users[uid].quarterPicks} showPicker={false}
+          showPicks={!status.quarterPicksOpen}
+        />
       )}
       {users[uid] && users[uid].round16Picks && (
         <Round16Picks

@@ -22,6 +22,14 @@
           },
       }
     },
+    "quarterPicks": {
+      "$quarterPick": {
+        ".write": "root.child('quarterPicks/'+$quarterPick+'/user'+auth.uid).exists() || newData.child('user').exists()",
+        "user": {
+             ".validate": "newData.val() === auth.uid"
+          },
+      }
+    },
     "topScorerPicks": {
       "$topScorerPick": {
         ".write": "root.child('topScorerPicks/'+$topScorerPick+'/user'+auth.uid).exists() || newData.child('user').exists()",

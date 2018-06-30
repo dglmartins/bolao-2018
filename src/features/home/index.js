@@ -9,8 +9,9 @@ import { firebaseAuth } from '../services/utils/api';
 import { logInOut } from '../login/services/userActions';
 import { changeHeaderNameShowing } from '../sharedComponents//mainHeader/services/headerActions';
 
-import { getOnceMyRoundOnePicks, getStatusThunk, getTopScorersThunk, getTopScorerPickThunk, getTeamsThunk, getTeamPickThunk, getOnceUsers, getWatchGroupsStats, getWatchRound16Stats, getOnceMyRound16Picks } from './services/getDataThunk';
+import { getOnceMyRoundOnePicks, getStatusThunk, getTopScorersThunk, getTopScorerPickThunk, getTeamsThunk, getTeamPickThunk, getOnceUsers, getWatchGroupsStats, getWatchRound16Stats, getOnceMyRound16Picks, getWatchQuarterStats, getOnceMyQuarterPicks } from './services/getDataThunk';
 import { spinnerOnOff } from '../spinner/services/spinnerActions';
+// import { testCloseOpenRound16 } from './services/actions/testActions';
 
 
 class Home extends Component {
@@ -31,9 +32,12 @@ class Home extends Component {
           this.props.getOnceUsers(),
           this.props.getWatchGroupsStats(),
           this.props.getWatchRound16Stats(),
-          this.props.getOnceMyRound16Picks(currentUser.uid)
+          this.props.getOnceMyRound16Picks(currentUser.uid),
+          this.props.getWatchQuarterStats(),
+          this.props.getOnceMyQuarterPicks(currentUser.uid),
         ]).then(() =>{
           this.props.spinnerOnOff(false);
+          // this.props.testCloseOpenRound16(false);
           this.props.history.push(`/home/groupStandings/${currentUser.uid}`)
 
         })
@@ -58,6 +62,8 @@ class Home extends Component {
               teamPick={this.props.teamPick}
               round16Picks={this.props.round16Picks}
               showRound16Picks={this.props.status.round16PicksOpen}
+              showQuarterPicks={this.props.status.quarterPicksOpen}
+              quarterPicks={this.props.quarterPicks}
             />
             {/* <Route path="/home/sideMenu" component={SideMenu}/> */}
           </section>
@@ -69,14 +75,15 @@ class Home extends Component {
   }
 }
 
-function mapStateToProps ({ user, roundOnePicks, topScorerPick, teamPick, round16Picks, status }) {
+function mapStateToProps ({ user, roundOnePicks, topScorerPick, teamPick, round16Picks, quarterPicks, status }) {
     return {
       user,
       roundOnePicks,
       topScorerPick,
       teamPick,
       round16Picks,
-      status
+      status,
+      quarterPicks
     };
 }
 
@@ -94,7 +101,10 @@ function mapDispatchToProps (dispatch) {
     getOnceUsers: () => dispatch(getOnceUsers()),
     getWatchGroupsStats: () => dispatch(getWatchGroupsStats()),
     getWatchRound16Stats: () => dispatch(getWatchRound16Stats()),
-    getOnceMyRound16Picks: (data) => dispatch(getOnceMyRound16Picks(data))
+    getOnceMyRound16Picks: (data) => dispatch(getOnceMyRound16Picks(data)),
+    getWatchQuarterStats: () => dispatch(getWatchQuarterStats()),
+    getOnceMyQuarterPicks: (data) => dispatch(getOnceMyQuarterPicks(data))
+    // testCloseOpenRound16: (data) => dispatch(testCloseOpenRound16(data))
   };
 }
 

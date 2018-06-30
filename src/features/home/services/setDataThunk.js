@@ -1,4 +1,4 @@
-import { changePick, changeRound16GamePick, changeRound16TeamAdvance } from './actions/picksActions';
+import { changePick, changeRound16GamePick, changeQuarterGamePick, changeRound16TeamAdvance, changeQuarterTeamAdvance } from './actions/picksActions';
 import { getTopScorerPick } from './actions/picksActions';
 import { getTeamPick } from './actions/picksActions';
 
@@ -20,6 +20,7 @@ export function createPick({uid, group, whichPick, pick}) {
 
 export function createGamePick({uid, whichRound, whichGame, team1Score, team2Score, team1, team2}) {
   const pickId = `${whichRound}-${whichGame}-${uid}`;
+  console.log(pickId)
   let teamAdvance = "disabled";
   if (team1Score > team2Score) {
     teamAdvance = team1
@@ -36,12 +37,15 @@ export function createGamePick({uid, whichRound, whichGame, team1Score, team2Sco
 
   return function(dispatch, getState, api) {
     const ref = api.firebaseDb.ref();
-    return ref.child(`round16Picks/${pickId}`).set(data).then(() => {
+    return ref.child(`${whichRound}/${pickId}`).set(data).then(() => {
       const updates = {}
       updates[`users/${uid}/${whichRound}/${whichGame}`] = pick;
       ref.update(updates).then((results) => {
         if (whichRound === "round16Picks") {
           dispatch(changeRound16GamePick({whichGame, pick}))
+        }
+        if (whichRound === "quarterPicks") {
+          dispatch(changeQuarterGamePick({whichGame, pick}))
         }
 
       })
@@ -52,7 +56,7 @@ export function createGamePick({uid, whichRound, whichGame, team1Score, team2Sco
 export function updateTeamAdvance({uid, whichRound, whichGame, teamAdvance}) {
   const pickId = `${whichRound}-${whichGame}-${uid}`;
   const updates = {}
-  updates[`round16Picks/${pickId}/teamAdvance`] = teamAdvance;
+  updates[`${whichRound}/${pickId}/teamAdvance`] = teamAdvance;
   updates[`users/${uid}/${whichRound}/${whichGame}/teamAdvance`] = teamAdvance
   console.log(updates)
 
@@ -61,6 +65,9 @@ export function updateTeamAdvance({uid, whichRound, whichGame, teamAdvance}) {
     ref.update(updates).then((results) => {
       if (whichRound === "round16Picks") {
         dispatch(changeRound16TeamAdvance({whichGame, teamAdvance}))
+      }
+      if (whichRound === "quarterPicks") {
+        dispatch(changeQuarterTeamAdvance({whichGame, teamAdvance}))
       }
 
     })

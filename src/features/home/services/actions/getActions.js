@@ -4,6 +4,7 @@ export const GET_TEAMS = 'GET_TEAMS';
 export const GET_USERS = 'GET_USERS';
 export const GET_GROUPS_STATS = "GET_GROUPS_STATS";
 export const GET_ROUND16_STATS = "GET_ROUND16_STATS";
+export const GET_QUARTER_STATS = 'GET_QUARTER_STATS';
 
 
 export function getStatus(status) {
@@ -45,5 +46,12 @@ export function getRound16Stats(round16Stats) {
   return {
     type: GET_ROUND16_STATS,
     round16Stats
+  }
+}
+
+export function getQuarterStats(quarterStats) {
+  return {
+    type: GET_QUARTER_STATS,
+    quarterStats
   }
 }
