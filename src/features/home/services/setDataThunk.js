@@ -1,4 +1,4 @@
-import { changePick, changeRound16GamePick, changeQuarterGamePick, changeRound16TeamAdvance, changeQuarterTeamAdvance } from './actions/picksActions';
+import { changePick, changeRound16GamePick, changeQuarterGamePick,  changeSemiGamePick, changeRound16TeamAdvance, changeQuarterTeamAdvance, changeSemiTeamAdvance } from './actions/picksActions';
 import { getTopScorerPick } from './actions/picksActions';
 import { getTeamPick } from './actions/picksActions';
 
@@ -47,6 +47,9 @@ export function createGamePick({uid, whichRound, whichGame, team1Score, team2Sco
         if (whichRound === "quarterPicks") {
           dispatch(changeQuarterGamePick({whichGame, pick}))
         }
+        if (whichRound === "semiPicks") {
+          dispatch(changeSemiGamePick({whichGame, pick}))
+        }
 
       })
     });
@@ -68,6 +71,9 @@ export function updateTeamAdvance({uid, whichRound, whichGame, teamAdvance}) {
       }
       if (whichRound === "quarterPicks") {
         dispatch(changeQuarterTeamAdvance({whichGame, teamAdvance}))
+      }
+      if (whichRound === "semiPicks") {
+        dispatch(changeSemiTeamAdvance({whichGame, teamAdvance}))
       }
 
     })

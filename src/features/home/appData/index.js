@@ -6,6 +6,7 @@ import RulesTable from './rules/rulesTable';
 import RoundOnePicks from './roundOnePicks';
 import Round16Picks from './round16Picks';
 import QuarterPicks from './quarterPicks';
+import SemiPicks from './semiPicks';
 import './appData.css'
 class AppData extends Component {
   componentWillMount() {
@@ -52,6 +53,13 @@ class AppData extends Component {
                 showPicker={true}
                 quarterPicks={this.props.quarterPicks}
                 showPicks={this.props.showQuarterPicks}
+              />
+          )}/>
+          <Route path='/home/semiPicks' render={() => (
+              <SemiPicks
+                showPicker={true}
+                semiPicks={this.props.semiPicks}
+                showPicks={this.props.showSemiPicks}
               />
           )}/>
           <Route path='/home/bolaoStandings' component={UsersView}/>

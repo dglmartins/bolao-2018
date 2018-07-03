@@ -14,8 +14,13 @@ const SubHeader = (props) => {
   const navigateToRound16Picks = () => {
     props.history.push('/home/round16Picks');
   }
+
   const navigateToQuarterPicks = () => {
     props.history.push('/home/quarterPicks');
+  }
+
+  const navigateToSemiPicks = () => {
+    props.history.push('/home/semiPicks');
   }
 
   const navigateToBolaoStandings = () => {
@@ -41,6 +46,11 @@ const SubHeader = (props) => {
          )}
          {props.status.pickStage === "quarter" && (
            <td className="nav-link" onClick={navigateToQuarterPicks}>
+             Make Picks
+           </td>
+         )}
+         {props.status.pickStage === "semi" && (
+           <td className="nav-link" onClick={navigateToSemiPicks}>
              Make Picks
            </td>
          )}

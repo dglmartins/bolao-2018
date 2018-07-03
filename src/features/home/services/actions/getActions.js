@@ -5,6 +5,8 @@ export const GET_USERS = 'GET_USERS';
 export const GET_GROUPS_STATS = "GET_GROUPS_STATS";
 export const GET_ROUND16_STATS = "GET_ROUND16_STATS";
 export const GET_QUARTER_STATS = 'GET_QUARTER_STATS';
+export const GET_SEMI_STATS = 'GET_SEMI_STATS';
+
 
 
 export function getStatus(status) {
@@ -53,5 +55,12 @@ export function getQuarterStats(quarterStats) {
   return {
     type: GET_QUARTER_STATS,
     quarterStats
+  }
+}
+
+export function getSemiStats(semiStats) {
+  return {
+    type: GET_SEMI_STATS,
+    semiStats
   }
 }
