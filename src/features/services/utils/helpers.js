@@ -280,11 +280,12 @@ export function sortByFIFAOrder(group) {
   return orderedArray
 }
 
-function calcPoints(groupStagePicks, round16Results, quarterResults, user) {
+function calcPoints(groupStagePicks, round16Results, quarterResults, semiResults, user) {
 
   let groupStagePoints = 0;
   let round16Points = 0;
   let quarterPoints = 0;
+  let semiPoints = 0;
 
   const groupStageArray = Object.keys(groupStagePicks).map((group) => (
     groupStagePicks[group]
@@ -294,6 +295,10 @@ function calcPoints(groupStagePicks, round16Results, quarterResults, user) {
   ));
   const quarterArray = Object.keys(quarterResults).map((gameId) => (
     quarterResults[gameId]
+  ));
+
+  const semiArray = Object.keys(semiResults).map((gameId) => (
+    semiResults[gameId]
   ));
 
   for (const group of groupStageArray) {
@@ -364,9 +369,33 @@ function calcPoints(groupStagePicks, round16Results, quarterResults, user) {
     }
   }
 
-  const totalPoints = groupStagePoints + round16Points + quarterPoints
+  for (const game of semiArray) {
 
-  return _.merge(user, {groupStagePoints, round16Points, quarterPoints, totalPoints})
+    if (game.status === "closed" && user.semiPicks && user.semiPicks[game.id]) {
+      const actualGoalsDifference = game.team1Score - game.team2Score
+      const guessedGoalsDifference = user.semiPicks[game.id].team1Score - user.semiPicks[game.id].team2Score
+      if (user.semiPicks[game.id].teamAdvance === game.teamAdvance) {
+        semiPoints += 16
+      }
+
+      if (user.semiPicks[game.id].team1Score === game.team1Score) {
+        semiPoints += 8
+      }
+
+      if (user.semiPicks[game.id].team2Score === game.team2Score) {
+        semiPoints += 8
+      }
+
+      if (actualGoalsDifference === guessedGoalsDifference) {
+        semiPoints += 8
+      }
+
+    }
+  }
+
+  const totalPoints = groupStagePoints + round16Points + quarterPoints + semiPoints
+
+  return _.merge(user, {groupStagePoints, round16Points, quarterPoints, semiPoints, totalPoints})
 
 }
 

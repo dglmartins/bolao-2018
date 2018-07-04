@@ -14,6 +14,7 @@ const UsersTable = (props) => {
         <tr className="row">
           <th className="table-head">Name</th>
           <th className="table-head">Total Points</th>
+          <th className="table-head">Semi Finals Pts</th>
           <th className="table-head">Quarter Finals Pts</th>
           <th className="table-head">Round 16 Pts</th>
           <th className="table-head">Group Pts</th>
@@ -22,6 +23,7 @@ const UsersTable = (props) => {
           <UserRow
             user={user}
             uid={user.uid}
+            semiPoints={user.semiPoints}
             round16Points={user.round16Points}
             groupStagePoints={user.groupStagePoints}
             quarterPoints={user.quarterPoints}
