@@ -23,6 +23,10 @@ const SubHeader = (props) => {
     props.history.push('/home/semiPicks');
   }
 
+  const navigateToFinalPicks = () => {
+    props.history.push('/home/finalPicks');
+  }
+
   const navigateToBolaoStandings = () => {
     props.history.push('/home/bolaoStandings');
   }
@@ -34,23 +38,28 @@ const SubHeader = (props) => {
    <table className="sub-header">
      <tbody>
        <tr>
-         {props.status.pickStage === "group" && (
+         {props.status.pickStageTest === "group" && (
            <td className="nav-link" onClick={navigateToRoundOnePicks}>
              Make Picks
            </td>
          )}
-         {props.status.pickStage === "round16" && (
+         {props.status.pickStageTest === "round16" && (
            <td className="nav-link" onClick={navigateToRound16Picks}>
              Make Picks
            </td>
          )}
-         {props.status.pickStage === "quarter" && (
+         {props.status.pickStageTest === "quarter" && (
            <td className="nav-link" onClick={navigateToQuarterPicks}>
              Make Picks
            </td>
          )}
-         {props.status.pickStage === "semi" && (
+         {props.status.pickStageTest === "semi" && (
            <td className="nav-link" onClick={navigateToSemiPicks}>
+             Make Picks
+           </td>
+         )}
+         {props.status.pickStageTest === "final" && (
+           <td className="nav-link" onClick={navigateToFinalPicks}>
              Make Picks
            </td>
          )}

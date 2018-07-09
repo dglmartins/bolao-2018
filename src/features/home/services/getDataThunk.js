@@ -1,5 +1,5 @@
-import { getRoundOnePicks, getRound16Picks, getQuarterPicks, getSemiPicks, getTopScorerPick, getTeamPick} from './actions/picksActions';
-import { getTeams, getUsers, getTopScorers, getStatus, getGroupsStats, getRound16Stats, getQuarterStats, getSemiStats } from './actions/getActions';
+import { getRoundOnePicks, getRound16Picks, getQuarterPicks, getSemiPicks, getFinalPicks, getTopScorerPick, getTeamPick} from './actions/picksActions';
+import { getTeams, getUsers, getTopScorers, getStatus, getGroupsStats, getRound16Stats, getQuarterStats, getSemiStats, getFinalStats } from './actions/getActions';
 
 
 export function getWatchGroupsStats () {
@@ -34,6 +34,15 @@ export function getWatchSemiStats () {
     const ref = api.firebaseDb.ref().child("semiStats").orderByKey();
     return ref.on('value', (snapshot) => {
       dispatch(getSemiStats(snapshot.val()));
+    });
+  };
+};
+
+export function getWatchFinalStats () {
+  return function(dispatch, getState, api) {
+    const ref = api.firebaseDb.ref().child("finalStats").orderByKey();
+    return ref.on('value', (snapshot) => {
+      dispatch(getFinalStats(snapshot.val()));
     });
   };
 };
@@ -132,6 +141,17 @@ export function getOnceMySemiPicks (uid) {
     return ref.once('value').then((snapshot) => {
       if (snapshot.val()) {
         dispatch(getSemiPicks(snapshot.val()));
+      }
+    });
+  };
+};
+
+export function getOnceMyFinalPicks (uid) {
+  return function(dispatch, getState, api) {
+    const ref = api.firebaseDb.ref().child(`users/${uid}/finalPicks`).orderByKey();
+    return ref.once('value').then((snapshot) => {
+      if (snapshot.val()) {
+        dispatch(getFinalPicks(snapshot.val()));
       }
     });
   };

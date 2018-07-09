@@ -6,6 +6,8 @@ import TeamScorerPickTable from '../teamScorerPickTable';
 import Round16Picks from '../round16Picks';
 import QuarterPicks from '../quarterPicks';
 import SemiPicks from '../semiPicks';
+import FinalPicks from '../finalPicks';
+
 
 
 const GroupView = (props) => {
@@ -16,6 +18,14 @@ const GroupView = (props) => {
       {users[uid] && (
         <div className="standings-title">{`Picks - ${users[uid].displayName}`}</div>
       )}
+
+      {users[uid] && users[uid].finalPicks && (
+        <FinalPicks
+          finalPicks={users[uid].finalPicks} showPicker={false}
+          showPicks={!status.finalPicksOpen}
+        />
+      )}
+
       {users[uid] && users[uid].semiPicks && (
         <SemiPicks
           semiPicks={users[uid].semiPicks} showPicker={false}

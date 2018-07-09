@@ -12,6 +12,8 @@ const UserRow = (props) => {
     <tr onClick={() => handleClick(props.uid)}>
       <td className="user-td">{props.user.displayName}</td>
       <td className="user-td mid-align bold-italic">{props.totalPoints}</td>
+      <td className="user-td mid-align" >{props.finalPoints}</td>
+      <td className="user-td mid-align" >{props.threeFourPoints}</td>
       <td className="user-td mid-align" >{props.semiPoints}</td>
       <td className="user-td mid-align" >{props.quarterPoints}</td>
       <td className="user-td mid-align">{props.round16Points}</td>

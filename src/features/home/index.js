@@ -9,7 +9,7 @@ import { firebaseAuth } from '../services/utils/api';
 import { logInOut } from '../login/services/userActions';
 import { changeHeaderNameShowing } from '../sharedComponents//mainHeader/services/headerActions';
 
-import { getOnceMyRoundOnePicks, getStatusThunk, getTopScorersThunk, getTopScorerPickThunk, getTeamsThunk, getTeamPickThunk, getOnceUsers, getWatchGroupsStats, getWatchRound16Stats, getOnceMyRound16Picks, getWatchQuarterStats, getOnceMyQuarterPicks, getWatchSemiStats, getOnceMySemiPicks } from './services/getDataThunk';
+import { getOnceMyRoundOnePicks, getStatusThunk, getTopScorersThunk, getTopScorerPickThunk, getTeamsThunk, getTeamPickThunk, getOnceUsers, getWatchGroupsStats, getWatchRound16Stats, getOnceMyRound16Picks, getWatchQuarterStats, getOnceMyQuarterPicks, getWatchSemiStats, getOnceMySemiPicks, getWatchFinalStats, getOnceMyFinalPicks } from './services/getDataThunk';
 import { spinnerOnOff } from '../spinner/services/spinnerActions';
 // import { testCloseOpenRound16 } from './services/actions/testActions';
 
@@ -37,6 +37,9 @@ class Home extends Component {
           this.props.getOnceMyQuarterPicks(currentUser.uid),
           this.props.getWatchSemiStats(),
           this.props.getOnceMySemiPicks(currentUser.uid),
+          this.props.getWatchFinalStats(),
+          this.props.getOnceMyFinalPicks(currentUser.uid),
+
         ]).then(() =>{
           this.props.spinnerOnOff(false);
           // this.props.testCloseOpenRound16(false);
@@ -68,6 +71,9 @@ class Home extends Component {
               quarterPicks={this.props.quarterPicks}
               showSemiPicks={this.props.status.semiPicksOpen}
               semiPicks={this.props.semiPicks}
+              finalPicks={this.props.finalPicks}
+              showFinalPicks={this.props.status.finalPicksOpen}
+
             />
             {/* <Route path="/home/sideMenu" component={SideMenu}/> */}
           </section>
@@ -79,7 +85,7 @@ class Home extends Component {
   }
 }
 
-function mapStateToProps ({ user, roundOnePicks, topScorerPick, teamPick, round16Picks, quarterPicks, semiPicks, status }) {
+function mapStateToProps ({ user, roundOnePicks, topScorerPick, teamPick, round16Picks, quarterPicks, semiPicks, finalPicks,status }) {
     return {
       user,
       roundOnePicks,
@@ -88,7 +94,8 @@ function mapStateToProps ({ user, roundOnePicks, topScorerPick, teamPick, round1
       round16Picks,
       status,
       quarterPicks,
-      semiPicks
+      semiPicks,
+      finalPicks
     };
 }
 
@@ -110,7 +117,9 @@ function mapDispatchToProps (dispatch) {
     getWatchQuarterStats: () => dispatch(getWatchQuarterStats()),
     getOnceMyQuarterPicks: (data) => dispatch(getOnceMyQuarterPicks(data)),
     getWatchSemiStats: () => dispatch(getWatchSemiStats()),
-    getOnceMySemiPicks: (data) => dispatch(getOnceMySemiPicks(data))
+    getOnceMySemiPicks: (data) => dispatch(getOnceMySemiPicks(data)),
+    getWatchFinalStats: () => dispatch(getWatchFinalStats()),
+    getOnceMyFinalPicks: (data) => dispatch(getOnceMyFinalPicks(data))
     // testCloseOpenRound16: (data) => dispatch(testCloseOpenRound16(data))
   };
 }

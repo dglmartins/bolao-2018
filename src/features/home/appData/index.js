@@ -7,23 +7,14 @@ import RoundOnePicks from './roundOnePicks';
 import Round16Picks from './round16Picks';
 import QuarterPicks from './quarterPicks';
 import SemiPicks from './semiPicks';
+import FinalPicks from './finalPicks';
+
+
 import './appData.css'
 class AppData extends Component {
-  componentWillMount() {
-    // this.props.spinnerOnOff(true);
-    // Promise.all([
-    //   this.props.getWatchProductsBrandsCompaniesCategories(), this.props.getWatchCitiesStatesCountries(),
-    //   this.props.getWatchAdminUsers()
-    // ])
-    //   .then(() => {
-    //     if (this.props.spinner.spinnerOn && this.props.user.currentUser) {
-    //       this.props.spinnerOnOff(false);
-    //     }
-    // });
-  }
+
 
   render() {
-    // const { gotAll } = this.props
     return (
       <section className="app-data-container">
         <Switch>
@@ -33,7 +24,6 @@ class AppData extends Component {
               <GroupView uid={match.params.user_id}/>
             )}
           />
-          {/* <Route path='/home/groupStandings' component={GroupView}/> */}
           <Route path='/home/roundOnePicks' render={() => (
               <RoundOnePicks
                 roundOnePicks={this.props.roundOnePicks}
@@ -60,6 +50,14 @@ class AppData extends Component {
                 showPicker={true}
                 semiPicks={this.props.semiPicks}
                 showPicks={this.props.showSemiPicks}
+              />
+          )}/>
+
+          <Route path='/home/finalPicks' render={() => (
+              <FinalPicks
+                showPicker={true}
+                finalPicks={this.props.finalPicks}
+                showPicks={this.props.showFinalPicks}
               />
           )}/>
           <Route path='/home/bolaoStandings' component={UsersView}/>

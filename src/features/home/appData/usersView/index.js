@@ -17,7 +17,7 @@ const UsersView = (props) => {
 
 function mapStateToProps({ users, status }) {
   // console.log(_.map(curriedPoints(status.groupStagePicks), users))
-  const usersWithPoints = (_.map(curriedPoints(status.groupStagePicks, status.round16Results, status.quarterResults, status.semiResults), users))
+  const usersWithPoints = (_.map(curriedPoints(status.groupStagePicks, status.round16Results, status.quarterResults, status.semiResults, status.finalResults), users))
   const usersWithPointsArray = Object.keys(usersWithPoints).map((uid) => (
     _.merge(usersWithPoints[uid], {uid})
   ))

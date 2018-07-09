@@ -280,12 +280,14 @@ export function sortByFIFAOrder(group) {
   return orderedArray
 }
 
-function calcPoints(groupStagePicks, round16Results, quarterResults, semiResults, user) {
+function calcPoints(groupStagePicks, round16Results, quarterResults, semiResults, finalResults, user) {
 
   let groupStagePoints = 0;
   let round16Points = 0;
   let quarterPoints = 0;
   let semiPoints = 0;
+  let threeFourPoints = 0;
+  let finalPoints = 0;
 
   const groupStageArray = Object.keys(groupStagePicks).map((group) => (
     groupStagePicks[group]
@@ -299,6 +301,10 @@ function calcPoints(groupStagePicks, round16Results, quarterResults, semiResults
 
   const semiArray = Object.keys(semiResults).map((gameId) => (
     semiResults[gameId]
+  ));
+
+  const finalArray = Object.keys(finalResults).map((gameId) => (
+    finalResults[gameId]
   ));
 
   for (const group of groupStageArray) {
@@ -393,9 +399,57 @@ function calcPoints(groupStagePicks, round16Results, quarterResults, semiResults
     }
   }
 
-  const totalPoints = groupStagePoints + round16Points + quarterPoints + semiPoints
+  for (const game of finalArray) {
 
-  return _.merge(user, {groupStagePoints, round16Points, quarterPoints, semiPoints, totalPoints})
+    if (game.id === "game1") {
+      if (game.status === "closed" && user.finalPicks && user.finalPicks[game.id]) {
+        const actualGoalsDifference = game.team1Score - game.team2Score
+        const guessedGoalsDifference = user.finalPicks[game.id].team1Score - user.finalPicks[game.id].team2Score
+        if (user.finalPicks[game.id].teamAdvance === game.teamAdvance) {
+          threeFourPoints += 12
+        }
+
+        if (user.finalPicks[game.id].team1Score === game.team1Score) {
+          threeFourPoints += 6
+        }
+
+        if (user.finalPicks[game.id].team2Score === game.team2Score) {
+          threeFourPoints += 6
+        }
+
+        if (actualGoalsDifference === guessedGoalsDifference) {
+          threeFourPoints += 6
+        }
+
+      }
+    } else if (game.id === "game2") {
+      if (game.status === "closed" && user.finalPicks && user.finalPicks[game.id]) {
+        const actualGoalsDifference = game.team1Score - game.team2Score
+        const guessedGoalsDifference = user.finalPicks[game.id].team1Score - user.finalPicks[game.id].team2Score
+        if (user.finalPicks[game.id].teamAdvance === game.teamAdvance) {
+          finalPoints += 40
+        }
+
+        if (user.finalPicks[game.id].team1Score === game.team1Score) {
+          finalPoints += 20
+        }
+
+        if (user.finalPicks[game.id].team2Score === game.team2Score) {
+          finalPoints += 20
+        }
+
+        if (actualGoalsDifference === guessedGoalsDifference) {
+          finalPoints += 20
+        }
+
+      }
+    }
+
+  }
+
+  const totalPoints = groupStagePoints + round16Points + quarterPoints + semiPoints + threeFourPoints + finalPoints
+
+  return _.merge(user, {groupStagePoints, round16Points, quarterPoints, semiPoints, threeFourPoints, finalPoints, totalPoints})
 
 }
 
