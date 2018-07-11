@@ -38,27 +38,27 @@ const SubHeader = (props) => {
    <table className="sub-header">
      <tbody>
        <tr>
-         {props.status.pickStageTest === "group" && (
+         {props.status.pickStage=== "group" && (
            <td className="nav-link" onClick={navigateToRoundOnePicks}>
              Make Picks
            </td>
          )}
-         {props.status.pickStageTest === "round16" && (
+         {props.status.pickStage === "round16" && (
            <td className="nav-link" onClick={navigateToRound16Picks}>
              Make Picks
            </td>
          )}
-         {props.status.pickStageTest === "quarter" && (
+         {props.status.pickStage === "quarter" && (
            <td className="nav-link" onClick={navigateToQuarterPicks}>
              Make Picks
            </td>
          )}
-         {props.status.pickStageTest === "semi" && (
+         {props.status.pickStage === "semi" && (
            <td className="nav-link" onClick={navigateToSemiPicks}>
              Make Picks
            </td>
          )}
-         {props.status.pickStageTest === "final" && (
+         {props.status.pickStage === "final" && (
            <td className="nav-link" onClick={navigateToFinalPicks}>
              Make Picks
            </td>
